@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="referrer" content="no-referrer" />
+<title>Phuket Grad Trip — Villa Vote (16–21 May)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0f14; --bg2:#0f151c; --card:#131b24; --card2:#18222e;
+    --line:#22303f; --text:#e8eef5; --muted:#8ea0b5; --accent:#ff7a59;
+    --accent2:#49d0b0; --warn:#ffb84d; --bad:#ff6b6b; --good:#49d0b0;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent2);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* HERO */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(255,122,89,.25), transparent 60%),
+      radial-gradient(800px 500px at 0% 10%, rgba(73,208,176,.18), transparent 60%),
+      linear-gradient(180deg,#0b0f14,#0b0f14);
+    padding:64px 24px 40px;border-bottom:1px solid var(--line);
+  }
+  .hero-inner{max-width:1180px;margin:0 auto}
+  .eyebrow{font-size:12px;letter-spacing:.2em;color:var(--accent);font-weight:700;text-transform:uppercase}
+  h1{font-size:clamp(36px,6vw,64px);line-height:1.04;margin:14px 0 10px;font-weight:900;letter-spacing:-.02em}
+  h1 span{background:linear-gradient(90deg,#ff7a59,#ffb84d,#49d0b0);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:18px;color:var(--muted);max-width:780px;line-height:1.55}
+  .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .pill{background:var(--card);border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-size:13px;color:var(--text);font-weight:500}
+  .pill b{color:var(--accent2);font-weight:700}
+
+  /* CRITERIA STRIP */
+  .criteria{max-width:1180px;margin:28px auto 0;padding:0 24px}
+  .criteria-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+  .c-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .c-card h4{margin:0 0 4px;font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+  .c-card p{margin:0;font-weight:600}
+
+  /* SECTION */
+  section{max-width:1180px;margin:56px auto;padding:0 24px}
+  h2{font-size:28px;margin:0 0 6px;letter-spacing:-.01em}
+  .section-sub{color:var(--muted);margin:0 0 24px}
+
+  /* TABS */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+  .tab{background:var(--card);border:1px solid var(--line);color:var(--text);padding:9px 14px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
+  .tab.active{background:var(--accent);border-color:var(--accent);color:#1a0f0a}
+  .tab:hover{border-color:var(--accent)}
+
+  /* CARDS */
+  .villa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
+  .villa{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.2s;position:relative}
+  .villa:hover{border-color:var(--accent2);transform:translateY(-2px)}
+  .villa .ph{height:220px;position:relative;cursor:pointer;overflow:hidden;background:linear-gradient(135deg,#1a2532,#0f1821)}
+  .villa .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s ease}
+  .villa .ph img.a{opacity:1;z-index:1}
+  .villa .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.7));pointer-events:none;z-index:2}
+  .villa .ph .fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;z-index:0}
+  .villa .ph .dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:3}
+  .villa .ph .dots span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45);transition:.2s}
+  .villa .ph .dots span.a{background:#fff;width:18px;border-radius:999px}
+  .villa .ph .nav{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;cursor:pointer;z-index:3;opacity:0;transition:.2s;border:0}
+  .villa:hover .ph .nav{opacity:1}
+  .villa .ph .nav.l{left:8px}
+  .villa .ph .nav.r{right:8px}
+  .villa .ph .nav:hover{background:rgba(0,0,0,.8)}
+  .villa .tag{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);padding:5px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;z-index:2}
+  .villa .tag.fit{background:rgba(73,208,176,.9);color:#0b2a22}
+  .villa .tag.warn{background:rgba(255,184,77,.9);color:#3b2a05}
+  .villa .tag.miss{background:rgba(255,107,107,.9);color:#3b0808}
+  .villa .rating{position:absolute;top:12px;right:12px;background:#000b;padding:5px 9px;border-radius:8px;font-size:12px;font-weight:700;z-index:2}
+  .villa-body{padding:18px 18px 16px;flex:1;display:flex;flex-direction:column;gap:10px}
+  .villa h3{margin:0;font-size:18px;font-weight:700;line-height:1.25}
+  .loc{color:var(--muted);font-size:13px;margin:0}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px}
+  .stat{background:var(--card2);padding:8px 10px;border-radius:10px;border:1px solid var(--line)}
+  .stat .l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+  .stat .v{font-size:14px;font-weight:700;margin-top:2px}
+  .price-box{background:linear-gradient(135deg,rgba(73,208,176,.08),rgba(255,122,89,.08));border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:2px}
+  .price-box .pn{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+  .price-box .pv{font-size:22px;font-weight:800;margin-top:2px}
+  .price-box .pv small{font-size:12px;color:var(--muted);font-weight:500}
+  .check-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .check{font-size:11px;padding:4px 9px;border-radius:6px;font-weight:600;display:inline-flex;align-items:center;gap:4px}
+  .check.y{background:rgba(73,208,176,.15);color:#6fe0c4;border:1px solid rgba(73,208,176,.3)}
+  .check.n{background:rgba(255,107,107,.15);color:#ff9898;border:1px solid rgba(255,107,107,.3)}
+  .check.m{background:rgba(255,184,77,.15);color:#ffc875;border:1px solid rgba(255,184,77,.3)}
+  .notes{font-size:13px;color:#b8c5d4;line-height:1.5}
+  .actions{display:flex;gap:8px;margin-top:auto;padding-top:6px}
+  .btn{flex:1;text-align:center;background:var(--card2);border:1px solid var(--line);color:var(--text);padding:10px 12px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;transition:.15s;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+  .btn:hover{border-color:var(--accent2);color:#fff}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#1a0f0a}
+  .btn.primary:hover{background:#ff8d70;color:#1a0f0a;text-decoration:none}
+
+  /* COMPARISON */
+  .cmp-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+  table.cmp{width:100%;border-collapse:collapse;min-width:820px;background:var(--card)}
+  .cmp th,.cmp td{padding:12px 14px;text-align:left;font-size:13px;border-bottom:1px solid var(--line);vertical-align:middle}
+  .cmp th{background:var(--card2);color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;position:sticky;top:0}
+  .cmp tr:hover td{background:rgba(73,208,176,.04)}
+  .cmp td.name{font-weight:700;color:#fff}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .dot.y{background:var(--good)}.dot.n{background:var(--bad)}.dot.m{background:var(--warn)}
+
+  /* VOTE SECTION */
+  .vote{background:linear-gradient(135deg,rgba(255,122,89,.08),rgba(73,208,176,.08));border:1px solid var(--line);border-radius:20px;padding:32px}
+  .vote h2{margin-bottom:8px}
+  .vote-box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-top:18px}
+  .vote-iframe{width:100%;min-height:820px;border:0;border-radius:10px;background:#fff;margin-top:12px}
+  .vote-setup{background:var(--card2);border:1px dashed var(--line);border-radius:12px;padding:18px;margin-top:18px;font-size:14px;line-height:1.7}
+  .vote-setup h4{margin:0 0 8px;color:var(--accent2)}
+  .vote-setup ol{margin:6px 0 0;padding-left:20px}
+  .vote-setup code{background:#000a;padding:2px 6px;border-radius:4px;font-size:12px;color:#fff}
+
+  /* RESULTS */
+  .result-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .result-row:last-child{border:0}
+  .bar{flex:1;height:10px;background:var(--card2);border-radius:999px;overflow:hidden}
+  .bar .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:999px;transition:width .6s}
+  .rnum{min-width:36px;text-align:right;font-weight:700;color:var(--muted);font-size:13px}
+  .rname{min-width:220px;font-weight:600;font-size:14px}
+
+  footer{text-align:center;color:var(--muted);padding:40px 24px 60px;font-size:13px}
+  .filter-hide{display:none!important}
+
+  @media (max-width:640px){
+    .stats{grid-template-columns:repeat(3,1fr)}
+    .vote{padding:22px}
+    .hero{padding:44px 20px 30px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Grad trip • 16 – 21 May 2026 • 22 of us</div>
+    <h1>Phuket <span>villa vote</span></h1>
+    <p class="sub">Six options on the table. Scroll through, cross-check against our criteria, compare them side-by-side, and cast your vote at the bottom. <b style="color:#fff">Only one vote per person</b> — votes go through the Google Form at the bottom (auth'd with your Google account so no doubles).</p>
+    <div class="pill-row">
+      <div class="pill">🛏 Need <b>10–11 bedrooms</b> for 22</div>
+      <div class="pill">🏝 <b>≤10 min walk</b> to beach</div>
+      <div class="pill">🎉 Close to <b>Patong action</b></div>
+      <div class="pill">🛒 Grocery <b>walkable</b></div>
+      <div class="pill">🚕 <b>Cabs accessible</b></div>
+      <div class="pill">🏊 <b>Pool + modern villa</b> vibe</div>
+      <div class="pill">💸 <b>₹3.5–4.5K</b> pp/night (±500)</div>
+    </div>
+  </div>
+</header>
+
+<section class="criteria">
+  <div class="criteria-grid">
+    <div class="c-card"><h4>Check-in</h4><p>Sat 16 May 2026</p></div>
+    <div class="c-card"><h4>Check-out</h4><p>Thu 21 May 2026</p></div>
+    <div class="c-card"><h4>Nights</h4><p>5</p></div>
+    <div class="c-card"><h4>Group</h4><p>22 people</p></div>
+    <div class="c-card"><h4>Per-person budget</h4><p>₹3,000 – ₹5,000/night</p></div>
+    <div class="c-card"><h4>Total budget (5 nights)</h4><p>₹3.3L – ₹5.5L</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>🏡 The options</h2>
+  <p class="section-sub">Click a filter to narrow down. Price per person is computed at 22 guests × 5 nights. Location fit assumes the "Patong within 10-min walk" criterion.</p>
+  <div class="tabs">
+    <button class="tab active" data-filter="all">All 6</button>
+    <button class="tab" data-filter="patong">✅ In Patong area</button>
+    <button class="tab" data-filter="budget">💸 Under ₹4.5K pp</button>
+    <button class="tab" data-filter="bigbed">🛏 10+ bedrooms</button>
+  </div>
+
+  <div class="villa-grid" id="villaGrid">
+
+    <!-- 1 HIDEOUT -->
+    <article class="villa" data-tags="patong budget" data-key="hideout">
+      <div class="ph" data-imgs="https://pix8.agoda.net/hotelImages/76393384/0/afa31a19327217804cadfdbb3688501e.jpg,https://pix8.agoda.net/hotelImages/76393384/0/a7fa5d81291f32e0449c214ec8bab14e.jpg,https://pix8.agoda.net/hotelImages/76393384/0/3d09eea39c7aec07f64ef0fad1da4298.jpg,https://pix8.agoda.net/hotelImages/76393384/1194972271/41018aabbece56820fe624c3140a90e1.jpg"></div>
+      <span class="tag warn">⚠ Tri-Trang end</span>
+      <span class="rating">8.5 ★</span>
+      <div class="villa-body">
+        <h3>The Hideout Beachfront</h3>
+        <p class="loc">68 Muen-Ngern Rd, Patong Beach (Tri-Trang end) — beachfront, ~5 min drive / 20 min walk to Patong centre</p>
+        <div class="stats">
+          <div class="stat"><div class="l">Beds</div><div class="v">Mixed units</div></div>
+          <div class="stat"><div class="l">Pool</div><div class="v">Yes + private</div></div>
+          <div class="stat"><div class="l">Rating</div><div class="v">8.5 / 189</div></div>
+        </div>
+        <div class="price-box">
+          <div class="pn">Est. per person / night</div>
+          <div class="pv">~₹4,500 <small>(depends on unit mix)</small></div>
+        </div>
+        <div class="check-row">
+          <span class="check y">✓ Beachfront</span>
+          <span class="check y">✓ Pool</span>
+          <span class="check m">~ 20min walk to Patong</span>
+          <span class="check y">✓ On-site restaurant</span>
+          <span class="check m">~ Grocery limited nearby</span>
+        </div>
+        <p class="notes">Stylish beachfront apartments + villas on Tri-Trang Beach, quieter than central Patong. Has a 4-BR penthouse (sleeps 10) and multiple private-pool villas — you'd mix & match units. Shuttle to Patong 3x/day. Less walkable to Bangla action.</p>
+        <div class="actions">
+          <a class="btn" target="_blank" href="https://www.booking.com/hotel/th/the-hideout-beachfront.en-gb.html?checkin=2026-05-16&checkout=2026-05-21&group_adults=22&no_rooms=3&group_children=0">View on Booking</a>
+          <button class="btn primary" onclick="scrollToVote('Hideout Beachfront')">Vote this ↓</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2 TRICHADA -->
+    <article class="villa" data-tags="budget" data-key="trichada">
+      <div class="ph" data-imgs="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1000&q=80,https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1000&q=80,https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1000&q=80" data-note="representative"></div>
+      <span class="tag miss">✗ Bang Tao — not Patong</span>
+      <span class="rating">8.7 ★</span>
+      <div class="villa-body">
+        <h3>Trichada Tropical</h3>
+        <p class="loc">Bang Tao Beach, 2.6 km from centre — <b>~30 min drive from Patong</b></p>
+        <div class="stats">
+          <div class="stat"><div class="l">Bedrooms</div><div class="v">3–4 BR villas</div></div>
+          <div class="stat"><div class="l">Pool</div><div class="v">Private</div></div>
+          <div class="stat"><div class="l">Rating</div><div class="v">8.7</div></div>
+        </div>
+        <div class="price-box">
+          <div class="pn">Per person / night (22 ppl)</div>
+          <div class="pv">~₹2,115 <small>/ ₹2.32L total</small></div>
+        </div>
+        <div class="check-row">
+          <span class="check n">✗ NOT in Patong</span>
+          <span class="check y">✓ Private pool</span>
+          <span class="check y">✓ Modern villa</span>
+          <span class="check y">✓ Cheap pp</span>
+          <span class="check n">✗ 30 min cab to action</span>
+        </div>
+        <p class="notes">Cheapest option by far and the villas look great. <b>Dealbreaker:</b> it's in Bang Tao, a 30-min cab from Patong. You'd be paying taxis every single night if nightlife is the vibe.</p>
+        <div class="actions">
+          <a class="btn" target="_blank" href="https://www.booking.com/hotel/th/trichada-tropical.en-gb.html?checkin=2026-05-16&checkout=2026-05-21&group_adults=22&no_rooms=3&group_children=0">View on Booking</a>
+          <button class="btn primary" onclick="scrollToVote('Trichada Tropical')">Vote this ↓</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3 VIEW PHUKET -->
+    <article class="villa" data-tags="" data-key="view">
+      <div class="ph" data-imgs="https://pix10.agoda.net/hotelImages/1135313/0/def36381dcb1b54d100a469defbc7fdb.jpg,https://images.unsplash.com/photo-1455587734955-081b22074882?w=1000&q=80"></div>
+      <span class="tag miss">✗ Kata — not Patong</span>
+      <span class="rating">—</span>
+      <div class="villa-body">
+        <h3>The View Phuket</h3>
+        <p class="loc">78/8 Patak Rd, Karon / Kata Beach — <b>~15 min drive south of Patong</b></p>
+        <div class="stats">
+          <div class="stat"><div class="l">Bedrooms</div><div class="v">Hotel-style</div></div>
+          <div class="stat"><div class="l">Pool</div><div class="v">Yes</div></div>
+          <div class="stat"><div class="l">Per room</div><div class="v">₹11K/night</div></div>
+        </div>
+        <div class="price-box">
+          <div class="pn">Per person / night (11 rooms × 2)</div>
+          <div class="pv">~₹5,500 <small>(over budget)</small></div>
+        </div>
+        <div class="check-row">
+          <span class="check n">✗ NOT a villa</span>
+          <span class="check n">✗ Over budget</span>
+          <span class="check n">✗ Not in Patong</span>
+          <span class="check m">~ Modern</span>
+        </div>
+        <p class="notes">Boutique hotel with sea views at Kata, not a villa. Over-budget at ~₹5.5K pp/night. 15 min by cab to Patong.</p>
+        <div class="actions">
+          <a class="btn" target="_blank" href="https://www.agoda.com/en-in/the-view-phuket/hotel/phuket-th.html?checkIn=2026-05-16&checkOut=2026-05-21&rooms=11&adults=22">View on Agoda</a>
+          <button class="btn primary" onclick="scrollToVote('View Phuket')">Vote this ↓</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4 BANG TAO POOL VILLA -->
+    <article class="villa" data-tags="budget bigbed" data-key="bangtao3br">
+      <div class="ph" data-imgs="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1000&q=80,https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1000&q=80,https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=1000&q=80" data-note="representative"></div>
+      <span class="tag miss">✗ Bang Tao — not Patong</span>
+      <span class="rating">—</span>
+      <div class="villa-body">
+        <h3>Bang Tao 3-BR Pool Villas (×4)</h3>
+        <p class="loc">Bang Tao Beach / Laguna area — <b>~30 min drive from Patong</b></p>
+        <div class="stats">
+          <div class="stat"><div class="l">Beds</div><div class="v">12 BR total</div></div>
+          <div class="stat"><div class="l">Pool</div><div class="v">Private ×4</div></div>
+          <div class="stat"><div class="l">Sleeps</div><div class="v">up to 24</div></div>
+        </div>
+        <div class="price-box">
+          <div class="pn">Per person / night (22 ppl)</div>
+          <div class="pv">~₹2,395 <small>/ ₹2.63L total</small></div>
+        </div>
+        <div class="check-row">
+          <span class="check y">✓ 12 bedrooms</span>
+          <span class="check y">✓ 4 private pools</span>
+          <span class="check y">✓ Cheap pp</span>
+          <span class="check n">✗ 30 min from Patong</span>
+          <span class="check m">~ Laguna has groceries</span>
+        </div>
+        <p class="notes">Best value for a big group and you get 4 separate pool villas — great for splitting into sub-groups. But same Patong issue as Trichada: nightly cabs required.</p>
+        <div class="actions">
+          <a class="btn" target="_blank" href="https://www.booking.com/hotel/th/kuan-chang-shu-gua-bang-tao-hai-tan-lagunafu-jin-san-wo-shi-si-ren-yong-chi-bie.en-gb.html?checkin=2026-05-16&checkout=2026-05-21&group_adults=22&no_rooms=4&group_children=0">View on Booking</a>
+          <button class="btn primary" onclick="scrollToVote('Bang Tao Pool Villas')">Vote this ↓</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5 VILLA SKYLINE (added) -->
+    <article class="villa" data-tags="patong bigbed" data-key="skyline">
+      <div class="ph" data-imgs="https://a0.muscache.com/im/pictures/d5f42a4d-787d-4df4-94c0-afada7bda883.jpg,https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1000&q=80,https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1000&q=80"></div>
+      <span class="tag fit">✓ In Patong</span>
+      <span class="rating">New</span>
+      <div class="villa-body">
+        <h3>Villa Skyline Patong <small style="color:var(--muted);font-size:12px">+ 2nd villa</small></h3>
+        <p class="loc">Patong hillside — 4 min by car / ~12 min walk to beach, 5 min to Bangla Rd</p>
+        <div class="stats">
+          <div class="stat"><div class="l">Bedrooms</div><div class="v">5 (×2 villas)</div></div>
+          <div class="stat"><div class="l">Pool</div><div class="v">Infinity</div></div>
+          <div class="stat"><div class="l">Sleeps</div><div class="v">10 + 10</div></div>
+        </div>
+        <div class="price-box">
+          <div class="pn">Per person / night (est.)</div>
+          <div class="pv">~₹4,200 <small>— verify for dates</small></div>
+        </div>
+        <div class="check-row">
+          <span class="check y">✓ In Patong</span>
+          <span class="check y">✓ Modern villa</span>
+          <span class="check y">✓ Infinity pool</span>
+          <span class="check m">~ 12 min walk to beach</span>
+          <span class="check y">✓ Walk to Bangla</span>
+        </div>
+        <p class="notes"><b>My add.</b> Modern 5-BR, 7-BA with huge infinity pool, rooftop BBQ, cinema room. Would need to pair with a second similar villa nearby to hit 22. Closest to your actual brief (Patong + modern + pool). <b>⚠ Need to confirm availability + exact pricing for May 16-21.</b></p>
+        <div class="actions">
+          <a class="btn" target="_blank" href="https://www.booking.com/hotel/th/villa-skyline-patong-new-modern-seaview-gym-sauna-pool-villa.html?checkin=2026-05-16&checkout=2026-05-21&group_adults=22&no_rooms=2&group_children=0">Booking</a>
+          <a class="btn" target="_blank" href="https://www.airbnb.com/rooms/53394881">Airbnb</a>
+          <button class="btn primary" onclick="scrollToVote('Villa Skyline Patong')">Vote this ↓</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 6 CASTLE PATONG / 7-BR GRAND -->
+    <article class="villa" data-tags="patong bigbed" data-key="grand7">
+      <div class="ph" data-imgs="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1000&q=80,https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1000&q=80,https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1000&q=80" data-note="representative"></div>
+      <span class="tag fit">✓ In Patong</span>
+      <span class="rating">New</span>
+      <div class="villa-body">
+        <h3>Patong 7-BR Grand Pool Villa <small style="color:var(--muted);font-size:12px">+ studio rooms</small></h3>
+        <p class="loc">Heart of Patong — <b>12 min walk</b> to Patong Beach, <b>~10 min walk</b> to Bangla Rd</p>
+        <div class="stats">
+          <div class="stat"><div class="l">Bedrooms</div><div class="v">7 + studios</div></div>
+          <div class="stat"><div class="l">Pool</div><div class="v">Private</div></div>
+          <div class="stat"><div class="l">Sleeps</div><div class="v">~14 + overflow</div></div>
+        </div>
+        <div class="price-box">
+          <div class="pn">Per person / night (est.)</div>
+          <div class="pv">~₹4,000 <small>— verify for dates</small></div>
+        </div>
+        <div class="check-row">
+          <span class="check y">✓ In Patong</span>
+          <span class="check y">✓ Walk to beach</span>
+          <span class="check y">✓ Walk to Bangla</span>
+          <span class="check y">✓ Grocery nearby</span>
+          <span class="check m">~ Need overflow beds</span>
+        </div>
+        <p class="notes"><b>My add.</b> 7-BR villa in central Patong, 12 min walk to the beach and close to Bangla. Would need 3+ people per room in some rooms, or pair with a few studios across the road. Best combo of "real villa vibe + actually in Patong". <b>⚠ Verify on Booking.com for exact pricing.</b></p>
+        <div class="actions">
+          <a class="btn" target="_blank" href="https://www.booking.com/hotel/th/grand-wooden-pool-villa-7br-in-patong.html?checkin=2026-05-16&checkout=2026-05-21&group_adults=22&no_rooms=1&group_children=0">View on Booking</a>
+          <button class="btn primary" onclick="scrollToVote('Patong 7-BR Grand')">Vote this ↓</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <h2>📊 Side-by-side</h2>
+  <p class="section-sub">Sorted by how well they match the brief. Green = meets, amber = partial, red = miss.</p>
+  <div class="cmp-wrap">
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th>Villa</th><th>Area</th><th>Walk to Patong beach</th><th>Walk to Bangla</th><th>Beds</th><th>Pool</th><th>Grocery</th><th>₹ pp/night</th><th>Within budget</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="name">Patong 7-BR Grand <span class="pill" style="font-size:10px;padding:2px 6px">added</span></td><td><span class="dot y"></span>Patong centre</td><td><span class="dot y"></span>~12 min</td><td><span class="dot y"></span>~10 min</td><td><span class="dot m"></span>7 + studios</td><td><span class="dot y"></span>Yes</td><td><span class="dot y"></span>Walkable</td><td>~₹4,000</td><td><span class="dot y"></span>Yes</td></tr>
+        <tr><td class="name">Villa Skyline <span class="pill" style="font-size:10px;padding:2px 6px">added</span></td><td><span class="dot y"></span>Patong hill</td><td><span class="dot m"></span>~12 min</td><td><span class="dot y"></span>~5 min cab</td><td><span class="dot y"></span>5 ×2 villas</td><td><span class="dot y"></span>Infinity</td><td><span class="dot m"></span>Short cab</td><td>~₹4,200</td><td><span class="dot y"></span>Yes</td></tr>
+        <tr><td class="name">The Hideout Beachfront</td><td><span class="dot m"></span>Tri-Trang</td><td><span class="dot y"></span>Beachfront (own beach)</td><td><span class="dot n"></span>~20 min / cab</td><td><span class="dot m"></span>Mixed units</td><td><span class="dot y"></span>Pool + private</td><td><span class="dot m"></span>Limited</td><td>~₹4,500</td><td><span class="dot m"></span>At cap</td></tr>
+        <tr><td class="name">Bang Tao 3-BR ×4</td><td><span class="dot n"></span>Bang Tao</td><td><span class="dot n"></span>30 min drive</td><td><span class="dot n"></span>30 min drive</td><td><span class="dot y"></span>12 BR total</td><td><span class="dot y"></span>4 private</td><td><span class="dot y"></span>Laguna</td><td>~₹2,395</td><td><span class="dot y"></span>Way under</td></tr>
+        <tr><td class="name">Trichada Tropical</td><td><span class="dot n"></span>Bang Tao</td><td><span class="dot n"></span>30 min drive</td><td><span class="dot n"></span>30 min drive</td><td><span class="dot y"></span>3-4 BR ×4</td><td><span class="dot y"></span>Private</td><td><span class="dot y"></span>Laguna</td><td>~₹2,115</td><td><span class="dot y"></span>Way under</td></tr>
+        <tr><td class="name">The View Phuket</td><td><span class="dot n"></span>Kata</td><td><span class="dot n"></span>15 min drive</td><td><span class="dot n"></span>15 min drive</td><td><span class="dot n"></span>Hotel rooms</td><td><span class="dot y"></span>Yes</td><td><span class="dot y"></span>Kata town</td><td>~₹5,500</td><td><span class="dot n"></span>Over</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="section-sub" style="margin-top:14px;font-size:13px">
+    <b style="color:var(--warn)">Heads up:</b> 3 of your 4 original links (Trichada, Bang Tao Pool Villas, The View) aren't in Patong — they're 15–30 min drives away. If Patong nightlife is the priority, the two I added are a much closer fit. Trichada + Bang Tao are amazing <i>villas</i>, just far from the action.
+  </p>
+</section>
+
+<section>
+  <div class="vote">
+    <h2>🗳 Cast your vote</h2>
+    <p class="section-sub">One vote per person. Submit through the Google Form below — it's tied to your Google account so no duplicates.</p>
+
+    <div class="vote-box">
+      <iframe class="vote-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSes_7x_yesorlzCl2WJgv2sO9yPLUJJuBRLO334U75C_lbmDg/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+
+    <p style="text-align:center;margin:14px 0 0;color:var(--muted);font-size:13px">
+      Can't see the form? <a href="https://docs.google.com/forms/d/e/1FAIpQLSes_7x_yesorlzCl2WJgv2sO9yPLUJJuBRLO334U75C_lbmDg/viewform" target="_blank">Open it in a new tab →</a>
+    </p>
+
+    <div class="vote-box" style="margin-top:18px">
+      <h4 style="margin:0 0 6px">🏆 Live tally (mock preview)</h4>
+      <p style="color:var(--muted);font-size:13px;margin:0 0 10px">Once votes come in, paste the Google Sheet share link to view results, or re-build this chart from the form responses.</p>
+      <div id="results">
+        <div class="result-row"><div class="rname">Patong 7-BR Grand</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+        <div class="result-row"><div class="rname">Villa Skyline Patong</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+        <div class="result-row"><div class="rname">The Hideout Beachfront</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+        <div class="result-row"><div class="rname">Bang Tao Pool Villas</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+        <div class="result-row"><div class="rname">Trichada Tropical</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+        <div class="result-row"><div class="rname">The View Phuket</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Made for the Phuket grad trip crew • 16–21 May 2026 • Prices are estimates — confirm for exact dates before committing.
+</footer>
+
+<script>
+  // Tab filtering
+  document.querySelectorAll('.tab').forEach(t=>{
+    t.addEventListener('click',()=>{
+      document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+      const f=t.dataset.filter;
+      document.querySelectorAll('.villa').forEach(v=>{
+        if(f==='all'||v.dataset.tags.split(' ').includes(f)){
+          v.classList.remove('filter-hide');
+        } else {
+          v.classList.add('filter-hide');
+        }
+      });
+    });
+  });
+
+  // Image carousels on each villa card
+  document.querySelectorAll('.villa .ph').forEach(ph=>{
+    const imgs=(ph.dataset.imgs||'').split(',').filter(Boolean);
+    const fb=document.createElement('div');fb.className='fallback';fb.textContent='🏝 Preview loading…';
+    ph.appendChild(fb);
+    if(ph.dataset.note==='representative'){
+      const note=document.createElement('div');
+      note.textContent='representative photo';
+      note.style.cssText='position:absolute;bottom:8px;right:10px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);color:#fff;font-size:10px;padding:3px 8px;border-radius:999px;z-index:3;letter-spacing:.04em;font-weight:500';
+      ph.appendChild(note);
+    }
+    if(!imgs.length){fb.textContent='🏝 No preview available';return;}
+    const els=imgs.map(u=>{
+      const im=document.createElement('img');
+      im.src=u;
+      im.referrerPolicy='no-referrer';
+      im.loading='lazy';
+      im.alt='';
+      im.onerror=()=>{im.dataset.err='1';if(imgs.every((_,j)=>ph.querySelectorAll('img')[j]?.dataset.err==='1'))fb.textContent='🏝 Preview blocked by host — click "View on Booking"';};
+      im.onload=()=>{fb.style.display='none';};
+      ph.appendChild(im);
+      return im;
+    });
+    let i=0;
+    const set=k=>{
+      i=(k+els.length)%els.length;
+      els.forEach((e,j)=>e.classList.toggle('a',j===i));
+      ph.querySelectorAll('.dots span').forEach((d,j)=>d.classList.toggle('a',j===i));
+    };
+    if(els.length>1){
+      const dots=document.createElement('div');dots.className='dots';
+      els.forEach(()=>dots.appendChild(document.createElement('span')));
+      ph.appendChild(dots);
+      const l=document.createElement('button');l.className='nav l';l.textContent='‹';l.onclick=e=>{e.stopPropagation();set(i-1)};
+      const r=document.createElement('button');r.className='nav r';r.textContent='›';r.onclick=e=>{e.stopPropagation();set(i+1)};
+      ph.appendChild(l);ph.appendChild(r);
+      ph.addEventListener('click',()=>set(i+1));
+    }
+    set(0);
+  });
+
+  function scrollToVote(name){
+    document.querySelector('.vote').scrollIntoView({behavior:'smooth',block:'start'});
+    // Highlight the picked name briefly in the results
+    document.querySelectorAll('.rname').forEach(el=>{
+      if(el.textContent.toLowerCase().includes(name.toLowerCase().split(' ')[0])){
+        el.style.color='var(--accent)';
+        setTimeout(()=>el.style.color='',2500);
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
