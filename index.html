@@ -387,16 +387,185 @@
 
   .filter-hide { display: none !important }
 
+  /* ===== RECOMMENDATION RANKING ===== */
+  .rec-list { display: flex; flex-direction: column; gap: 14px }
+  .rec {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+    transition: .2s;
+    position: relative;
+  }
+  .rec:hover { border-color: var(--cyan); box-shadow: 0 0 20px var(--cyan-glow) }
+  .rec.top { border-color: var(--pink); box-shadow: 0 0 24px var(--pink-glow) }
+  .rec .rank {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 900; font-size: 22px;
+    background: var(--card2); border: 1px solid var(--line); color: var(--muted);
+  }
+  .rec.top .rank { background: linear-gradient(135deg, var(--pink), #cc1b5e); border-color: var(--pink); color: #fff; box-shadow: 0 0 16px var(--pink-glow) }
+  .rec .rec-body h4 { font-family: var(--font-display); font-size: 17px; font-weight: 800; margin: 0 0 4px }
+  .rec .rec-body h4 small { font-size: 11px; color: var(--muted); font-weight: 500; margin-left: 6px }
+  .rec .tagline { color: var(--cyan); font-size: 12px; font-weight: 700; letter-spacing: .03em; margin-bottom: 8px }
+  .rec .rec-stats { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px }
+  .rec .rec-stat {
+    background: var(--card2); border: 1px solid var(--line); border-radius: 8px;
+    padding: 4px 10px; font-size: 11px; font-weight: 600;
+  }
+  .rec .rec-stat b { color: var(--pink) }
+  .rec .rec-reason { font-size: 13px; color: #b0b0cc; line-height: 1.55 }
+  .rec .rec-reason b { color: var(--text) }
+  .rec .rec-caveat { font-size: 12px; color: var(--amber); margin-top: 6px; font-style: italic }
 
   /* ===== RESPONSIVE ===== */
+
+  /* Touch devices: always show carousel nav */
+  @media (hover: none), (pointer: coarse) {
+    .villa .ph .nav { opacity: .7 }
+    .villa .ph .nav:active { opacity: 1; background: var(--pink); border-color: var(--pink) }
+  }
+
+  @media (max-width: 768px) {
+    .villa-grid { grid-template-columns: 1fr }
+    .vote { padding: 24px 18px }
+    .vote-iframe { min-height: 700px }
+    .cmp-wrap { border-radius: 10px }
+    .result-row { gap: 10px }
+    .rname { min-width: 160px; font-size: 13px }
+    /* Recommendation cards */
+    .rec { padding: 16px; gap: 12px }
+    .rec .rec-body h4 { font-size: 15px }
+    .rec .rec-body h4 small { display: block; margin: 2px 0 0; margin-left: 0 }
+  }
+
   @media (max-width: 640px) {
     .hero { padding: 56px 18px 36px }
-    .stats { grid-template-columns: repeat(3, 1fr) }
-    .vote { padding: 22px }
-    .villa-grid { grid-template-columns: 1fr }
     h1 { font-size: 36px }
-    .result-row { gap: 10px }
-    .rname { min-width: 140px; font-size: 12px }
+    h2 { font-size: 24px }
+    .sub { font-size: 15px }
+    .section-sub { font-size: 13px }
+
+    /* Pills: tighter on narrow screens */
+    .pill-row { gap: 8px }
+    .pill { padding: 7px 12px; font-size: 12px; flex-shrink: 0 }
+
+    /* Criteria cards */
+    .criteria-grid { grid-template-columns: repeat(3, 1fr); gap: 8px }
+    .c-card { padding: 10px 12px; border-radius: 10px }
+    .c-card p { font-size: 13px }
+
+    /* Tabs: larger touch targets */
+    .tabs { gap: 6px }
+    .tab { padding: 10px 14px; font-size: 13px; min-height: 44px }
+
+    /* Villa cards */
+    .villa .ph { height: 200px }
+    .villa-body { padding: 16px }
+    .villa h3 { font-size: 17px }
+    .stats { grid-template-columns: repeat(3, 1fr); gap: 6px }
+    .stat { padding: 8px 10px }
+    .stat .l { font-size: 9px }
+    .stat .v { font-size: 13px }
+    .price-box { padding: 12px }
+    .price-box .pv { font-size: 20px }
+
+    /* Buttons: minimum touch-target height */
+    .btn { padding: 12px 14px; min-height: 44px; font-size: 13px }
+    .actions { gap: 6px }
+
+    /* Vote section */
+    .vote { padding: 20px 16px; border-radius: 14px }
+    .vote-box { padding: 14px; border-radius: 10px }
+    .vote-iframe { min-height: 650px }
+
+    /* Results */
+    .result-row { gap: 8px; padding: 10px 0 }
+    .rname { min-width: 120px; font-size: 12px }
+    .rnum { font-size: 13px }
+
+    /* Carousel nav: always visible + bigger targets */
+    .villa .ph .nav { opacity: .7; width: 38px; height: 38px; font-size: 18px }
+
+    /* Recommendation cards */
+    .rec { grid-template-columns: 40px 1fr; padding: 14px; gap: 10px }
+    .rec .rank { width: 40px; height: 40px; font-size: 18px; border-radius: 10px }
+    .rec .rec-body h4 { font-size: 15px }
+    .rec .tagline { font-size: 11px }
+    .rec .rec-stat { font-size: 10px; padding: 3px 8px }
+    .rec .rec-reason { font-size: 12px }
+    .rec .rec-caveat { font-size: 11px }
+
+    /* Footer */
+    footer { padding: 36px 18px 48px }
+  }
+
+  @media (max-width: 400px) {
+    .hero { padding: 48px 14px 28px }
+    h1 { font-size: 30px }
+    .eyebrow { font-size: 11px }
+    .sub { font-size: 14px }
+
+    section { padding: 0 14px; margin: 40px auto }
+
+    .criteria-grid { grid-template-columns: repeat(2, 1fr) }
+    .pill { font-size: 11px; padding: 6px 10px }
+
+    .villa .ph { height: 180px }
+    .villa-body { padding: 14px }
+    .villa h3 { font-size: 16px }
+    .loc { font-size: 12px }
+    .notes { font-size: 12px }
+    .check { font-size: 10px; padding: 3px 8px }
+
+    .price-box .pv { font-size: 18px }
+
+    .vote { padding: 16px 12px }
+    .vote-iframe { min-height: 580px }
+
+    .rname { min-width: 100px; font-size: 11px }
+
+    /* Recommendation cards: stack rank number */
+    .rec { grid-template-columns: 1fr; gap: 8px }
+    .rec .rank { width: 32px; height: 32px; font-size: 16px; border-radius: 8px }
+  }
+
+  /* Safe areas for notched devices */
+  @supports (padding: env(safe-area-inset-bottom)) {
+    footer { padding-bottom: calc(64px + env(safe-area-inset-bottom)) }
+    .hero { padding-top: calc(80px + env(safe-area-inset-top)) }
+    @media (max-width: 640px) {
+      .hero { padding-top: calc(56px + env(safe-area-inset-top)) }
+      footer { padding-bottom: calc(48px + env(safe-area-inset-bottom)) }
+    }
+  }
+
+  /* Sticky first column in comparison table on mobile */
+  @media (max-width: 768px) {
+    .cmp th:first-child, .cmp td:first-child {
+      position: sticky; left: 0; z-index: 1;
+      background: var(--card);
+    }
+    .cmp th:first-child { background: var(--card2); z-index: 2 }
+    .cmp-wrap { position: relative }
+    .cmp-wrap::after {
+      content: 'Scroll →';
+      position: absolute; top: 10px; right: 10px;
+      font-size: 11px; color: var(--muted);
+      background: var(--card2); padding: 4px 10px;
+      border-radius: 999px; border: 1px solid var(--line);
+      pointer-events: none; z-index: 3;
+      animation: fadeOut 3s forwards;
+    }
+    @keyframes fadeOut {
+      0%, 60% { opacity: 1 }
+      100% { opacity: 0 }
+    }
   }
 
   /* ===== PRETEXT DATA ATTRIBUTE ===== */
@@ -666,6 +835,117 @@
 </section>
 
 <section>
+  <h2>Our recommendation</h2>
+  <p class="section-sub">Ranked by how well each option matches our specific brief: 22 people, Patong proximity, nightlife access, modern villa with pool, ₹3.5–4.5K budget. Capacity assumes max 3 rooms can triple up (rest doubles).</p>
+
+  <div class="rec-list">
+
+    <div class="rec top">
+      <div class="rank">1</div>
+      <div class="rec-body">
+        <h4>Villa Skyline Patong ×2<small>Best overall match</small></h4>
+        <div class="tagline">Modern luxury + Patong + fits 22 + within budget</div>
+        <div class="rec-stats">
+          <span class="rec-stat"><b>10 BR</b> (5×2 villas)</span>
+          <span class="rec-stat"><b>₹4,200</b> pp/night</span>
+          <span class="rec-stat"><b>4.95★</b> Airbnb</span>
+          <span class="rec-stat"><b>Infinity pool</b> + jacuzzi</span>
+          <span class="rec-stat"><b>Gym</b> + sauna + cinema</span>
+        </div>
+        <p class="rec-reason">Ticks the most boxes. <b>Built 2021</b>, modern interior, infinity pool with Patong Bay views, rooftop BBQ + heated jacuzzi, cinema room, gym, sauna. Night security guard. 4-min drive to beach, short cab to Bangla. 8 doubles + 2 triples = 22.</p>
+        <p class="rec-caveat">Caveat: hillside (not walkable to beach), need to confirm 2nd villa for same dates with host.</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <div class="rank">2</div>
+      <div class="rec-body">
+        <h4>Patong 7-BR Grand + Studios<small>Best walkable location</small></h4>
+        <div class="tagline">Only option walkable to BOTH beach and Bangla</div>
+        <div class="rec-stats">
+          <span class="rec-stat"><b>7 BR</b> + overflow studios</span>
+          <span class="rec-stat"><b>₹4,000</b> pp/night</span>
+          <span class="rec-stat"><b>12 min</b> walk to beach</span>
+          <span class="rec-stat"><b>10 min</b> walk to Bangla</span>
+          <span class="rec-stat"><b>Pool</b> (6×3m)</span>
+        </div>
+        <p class="rec-reason"><b>Only option where you can stumble home from Bangla at 2am on foot.</b> Walkable grocery, flat area, cabs everywhere. Villa itself is solid — private pool, central location. The 12-min walk to beach matters when you're doing it daily.</p>
+        <p class="rec-caveat">Caveat: only 7 BR = fits 17 max (with 3 triples). Need 5 people in studios nearby. 4 bathrooms for 14+ people is tight. Small pool.</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <div class="rank">3</div>
+      <div class="rec-body">
+        <h4>The Hideout Beachfront<small>Best for beach days</small></h4>
+        <div class="tagline">Literally on the beach — Tri-Trang beachfront</div>
+        <div class="rec-stats">
+          <span class="rec-stat"><b>Mixed units</b> (4BR penthouse + villas)</span>
+          <span class="rec-stat"><b>₹4,500</b> pp/night</span>
+          <span class="rec-stat"><b>8.5★</b> / 189 reviews</span>
+          <span class="rec-stat"><b>Beachfront</b></span>
+          <span class="rec-stat"><b>Restaurant</b> on-site</span>
+        </div>
+        <p class="rec-reason">If the trip was about <b>beach + chill</b>, this would be #1. You're ON Tri-Trang Beach with private access. Restaurant on-site, shuttle to Patong 3x/day, 189 reviews at 8.5 = proven property. Stylish apartments + pool villas.</p>
+        <p class="rec-caveat">Caveat: 20-min walk to Bangla (or cab). Not a single-villa experience — you'd book multiple units. Limited grocery nearby. At budget cap.</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <div class="rank">4</div>
+      <div class="rec-body">
+        <h4>Bang Tao Pool Villas ×4<small>Best value</small></h4>
+        <div class="tagline">Save ₹2L as a group — 4 private pools, 12 bedrooms</div>
+        <div class="rec-stats">
+          <span class="rec-stat"><b>12 BR</b> total</span>
+          <span class="rec-stat"><b>₹2,395</b> pp/night</span>
+          <span class="rec-stat"><b>4 pools</b></span>
+          <span class="rec-stat"><b>30 min</b> from Patong</span>
+        </div>
+        <p class="rec-reason">Save ~₹1,800/person/night vs Patong options = <b>₹1.98L total saved</b> across the group for 5 nights. 12 BR means no triples needed. 4 separate pool villas = natural sub-group splits. Laguna has groceries + restaurants.</p>
+        <p class="rec-caveat">Caveat: 30 min from Patong. Daily taxis = ₹500–1,000 per person round trip to Bangla. Time + energy cost adds up.</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <div class="rank">5</div>
+      <div class="rec-body">
+        <h4>Trichada Tropical<small>Cheapest + highest rated</small></h4>
+        <div class="tagline">₹2,115 pp/night, 8.7★ — but 30 min from the action</div>
+        <div class="rec-stats">
+          <span class="rec-stat"><b>3 BR</b> per villa</span>
+          <span class="rec-stat"><b>₹2,115</b> pp/night</span>
+          <span class="rec-stat"><b>8.7★</b></span>
+          <span class="rec-stat"><b>30 min</b> from Patong</span>
+        </div>
+        <p class="rec-reason">Cheapest and best-reviewed on the list. Modern design, private pool per villa. At ₹2,115 you save the most money. Great if the crew is more chill-villa than party-every-night.</p>
+        <p class="rec-caveat">Caveat: same 30-min Patong issue. Need 7-8 separate villas for 22 people — coordination overhead. Group would be spread across many units.</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <div class="rank">6</div>
+      <div class="rec-body">
+        <h4>The View Phuket<small>Doesn't match the brief</small></h4>
+        <div class="tagline">Over budget, not a villa, not in Patong</div>
+        <div class="rec-stats">
+          <span class="rec-stat"><b>Hotel</b> rooms</span>
+          <span class="rec-stat"><b>₹5,500</b> pp/night</span>
+          <span class="rec-stat"><b>15 min</b> drive to Patong</span>
+          <span class="rec-stat" style="color:var(--pink)">Over budget</span>
+        </div>
+        <p class="rec-reason">Boutique hotel in Kata with nice sea views. Fails 3 criteria: not a villa, over budget, not in Patong. Only makes sense if the group pivots away from all three priorities.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="section-sub" style="margin-top:18px;font-size:13px">
+    <b style="color:var(--cyan)">TL;DR:</b> If nightlife + luxury matters most → <b>Villa Skyline ×2</b>. If walkability to Bangla at 2am matters most → <b>Patong 7-BR Grand</b>. If saving money matters most → <b>Bang Tao ×4</b>. If beach is king → <b>The Hideout</b>.
+  </p>
+</section>
+
+<section>
   <div class="vote">
     <h2>Cast your vote</h2>
     <p class="section-sub">One vote per person. Submit through the Google Form below — it's tied to your Google account so no duplicates.</p>
@@ -775,6 +1055,21 @@
       ph.appendChild(l);
       ph.appendChild(r);
       ph.addEventListener('click', function() { set(i + 1) });
+
+      // Touch swipe support
+      var touchStartX = 0;
+      var touchEndX = 0;
+      ph.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      ph.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        var diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) set(i + 1); else set(i - 1);
+          e.preventDefault();
+        }
+      });
     }
     set(0);
   });
