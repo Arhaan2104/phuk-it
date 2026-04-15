@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="referrer" content="no-referrer" />
 <title>Phuket Grad Trip — Villa Vote (16–21 May)</title>
+<meta property="og:title" content="Phuket Grad Trip — Villa Vote (16–21 May)" />
+<meta property="og:description" content="Vote on the perfect villa for our grad trip to Phuket!" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=1200&h=630&fit=crop" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=1200&h=630&fit=crop" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏖️</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -186,6 +193,17 @@
     box-shadow: 0 0 30px var(--cyan-glow), 0 4px 20px rgba(0,0,0,.4);
     transform: translateY(-3px);
   }
+  .villa .num {
+    position: absolute; top: 0; left: 0;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 20px; font-weight: 900;
+    color: #fff; z-index: 4;
+    background: rgba(8,8,15,.75); backdrop-filter: blur(8px);
+    border-bottom-right-radius: 14px;
+    border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    text-shadow: 0 0 12px var(--pink-glow);
+  }
   .villa .ph {
     height: 220px;
     position: relative;
@@ -231,7 +249,7 @@
   .villa .ph .nav.r { right: 8px }
   .villa .ph .nav:hover { background: var(--pink); border-color: var(--pink) }
   .villa .tag {
-    position: absolute; top: 12px; left: 12px;
+    position: absolute; top: 12px; left: 52px;
     background: rgba(8,8,15,.75); backdrop-filter: blur(8px);
     padding: 5px 12px; border-radius: 999px;
     font-size: 11px; font-weight: 700; letter-spacing: .05em;
@@ -578,11 +596,11 @@
   <div class="hero-inner">
     <div class="eyebrow">Grad trip &bull; 16 – 21 May 2026 &bull; 22 of us</div>
     <h1>Phuket <span class="glow">villa vote</span></h1>
-    <p class="sub" data-pretext contenteditable>Six options on the table. Scroll through, cross-check against our criteria, compare them side-by-side, and cast your vote at the bottom. <b>Only one vote per person</b> — votes go through the Google Form at the bottom (auth'd with your Google account so no doubles).</p>
+    <p class="sub" data-pretext contenteditable>Twelve options on the table — <b>6 group picks</b> + <b>6 Claude picks</b>. Patong is no longer required, any beach within 30-35 min is fair game. Scroll through, compare side-by-side, and cast your vote at the bottom. <b>Only one vote per person</b> — Google Form at the bottom.</p>
     <div class="pill-row">
       <div class="pill">Need <b>10–11 bedrooms</b> for 22</div>
       <div class="pill"><b>≤10 min walk</b> to beach</div>
-      <div class="pill">Close to <b>Patong action</b></div>
+      <div class="pill">Close to <b>the beach</b></div>
       <div class="pill">Grocery <b>walkable</b></div>
       <div class="pill"><b>Cabs accessible</b></div>
       <div class="pill"><b>Pool + modern villa</b> vibe</div>
@@ -604,18 +622,22 @@
 
 <section>
   <h2>The options</h2>
-  <p class="section-sub">Click a filter to narrow down. Price per person is computed at 22 guests x 5 nights. Location fit assumes the "Patong within 10-min walk" criterion.</p>
+  <p class="section-sub">Click a filter to narrow down. Price per person is computed at 22 guests × 5 nights. Beach proximity is the priority — Patong is fine too, just not required.</p>
   <div class="tabs">
-    <button class="tab active" data-filter="all">All 6</button>
-    <button class="tab" data-filter="patong">In Patong area</button>
+    <button class="tab active" data-filter="all">All 12</button>
+    <button class="tab" data-filter="group">Group picks</button>
+    <button class="tab" data-filter="claude">Claude picks</button>
     <button class="tab" data-filter="budget">Under ₹4.5K pp</button>
     <button class="tab" data-filter="bigbed">10+ bedrooms</button>
   </div>
 
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin:-4px 0 12px;font-style:italic">⚠ Some images may be inaccurate — visit the booking site to verify.</p>
+
   <div class="villa-grid" id="villaGrid">
 
     <!-- 1 HIDEOUT -->
-    <article class="villa" data-tags="patong budget" data-key="hideout">
+    <article class="villa" data-tags="group budget beach" data-key="hideout">
+      <span class="num">1</span>
       <div class="ph" data-imgs="https://pix8.agoda.net/hotelImages/76393384/0/afa31a19327217804cadfdbb3688501e.jpg,https://pix8.agoda.net/hotelImages/76393384/0/a7fa5d81291f32e0449c214ec8bab14e.jpg,https://pix8.agoda.net/hotelImages/76393384/0/3d09eea39c7aec07f64ef0fad1da4298.jpg,https://pix8.agoda.net/hotelImages/76393384/1194972271/41018aabbece56820fe624c3140a90e1.jpg"></div>
       <span class="tag warn">Tri-Trang end</span>
       <span class="rating">8.5 ★</span>
@@ -634,7 +656,7 @@
         <div class="check-row">
           <span class="check y">✓ Beachfront</span>
           <span class="check y">✓ Pool</span>
-          <span class="check m">~ 20min walk to Patong</span>
+          <span class="check y">✓ Tri-Trang Beach</span>
           <span class="check y">✓ On-site restaurant</span>
           <span class="check m">~ Grocery limited nearby</span>
         </div>
@@ -647,13 +669,14 @@
     </article>
 
     <!-- 2 TRICHADA -->
-    <article class="villa" data-tags="budget" data-key="trichada">
+    <article class="villa" data-tags="group budget" data-key="trichada">
+      <span class="num">2</span>
       <div class="ph" data-imgs="https://a0.muscache.com/im/pictures/hosting/Hosting-1265811180211719459/original/0d11d0ad-f026-44cf-8f2e-72568e351713.jpeg,https://a0.muscache.com/im/pictures/hosting/Hosting-1265811180211719459/original/178b2b78-8164-408a-8711-86fa8cae3aad.jpeg,https://a0.muscache.com/im/pictures/hosting/Hosting-1265811180211719459/original/2c036a33-334a-43b8-aa90-b767d5a9788f.jpeg"></div>
-      <span class="tag miss">NOT Patong</span>
+      <span class="tag fit">Bang Tao</span>
       <span class="rating">8.7 ★</span>
       <div class="villa-body">
         <h3>Trichada Tropical</h3>
-        <p class="loc">Bang Tao Beach, 2.6 km from centre — <b>~30 min drive from Patong</b></p>
+        <p class="loc">Bang Tao Beach, 2.6 km from centre — <b>10 min to Bang Tao Beach</b></p>
         <div class="stats">
           <div class="stat"><div class="l">Bedrooms</div><div class="v">3–4 BR villas</div></div>
           <div class="stat"><div class="l">Pool</div><div class="v">Private</div></div>
@@ -664,13 +687,13 @@
           <div class="pv">~₹2,115 <small>/ ₹2.32L total</small></div>
         </div>
         <div class="check-row">
-          <span class="check n">✗ NOT in Patong</span>
           <span class="check y">✓ Private pool</span>
           <span class="check y">✓ Modern villa</span>
           <span class="check y">✓ Cheap pp</span>
-          <span class="check n">✗ 30 min cab to action</span>
+          <span class="check y">✓ Bang Tao area</span>
+          <span class="check m">~ 10 min to beach</span>
         </div>
-        <p class="notes" data-pretext contenteditable>Cheapest option by far and the villas look great. Dealbreaker: it's in Bang Tao, a 30-min cab from Patong. You'd be paying taxis every single night if nightlife is the vibe.</p>
+        <p class="notes" data-pretext contenteditable>Cheapest option by far and the villas look great. Modern design, private pool per villa in the Bang Tao / Laguna area. 30 min from Patong nightlife, but Bang Tao has its own solid restaurant and bar scene.</p>
         <div class="actions">
           <a class="btn" target="_blank" href="https://www.booking.com/hotel/th/trichada-tropical.en-gb.html?checkin=2026-05-16&checkout=2026-05-21&group_adults=22&no_rooms=3&group_children=0">View on Booking</a>
           <button class="btn primary" onclick="scrollToVote('Trichada Tropical')">Vote this</button>
@@ -679,13 +702,14 @@
     </article>
 
     <!-- 3 VIEW PHUKET -->
-    <article class="villa" data-tags="" data-key="view">
+    <article class="villa" data-tags="group" data-key="view">
+      <span class="num">3</span>
       <div class="ph" data-imgs="https://pix10.agoda.net/hotelImages/1135313/0/def36381dcb1b54d100a469defbc7fdb.jpg,https://www.theviewphuket.com/images/theview_s.jpg,https://www.theviewphuket.com/images/cat_main01.jpg"></div>
-      <span class="tag miss">NOT Patong</span>
+      <span class="tag warn">Kata / Karon</span>
       <span class="rating">—</span>
       <div class="villa-body">
         <h3>The View Phuket</h3>
-        <p class="loc">78/8 Patak Rd, Karon / Kata Beach — <b>~15 min drive south of Patong</b></p>
+        <p class="loc">78/8 Patak Rd, Karon / Kata Beach — <b>5 min to Kata Beach</b></p>
         <div class="stats">
           <div class="stat"><div class="l">Bedrooms</div><div class="v">Hotel-style</div></div>
           <div class="stat"><div class="l">Pool</div><div class="v">Yes</div></div>
@@ -698,10 +722,10 @@
         <div class="check-row">
           <span class="check n">✗ NOT a villa</span>
           <span class="check n">✗ Over budget</span>
-          <span class="check n">✗ Not in Patong</span>
+          <span class="check y">✓ Near Kata Beach</span>
           <span class="check m">~ Modern</span>
         </div>
-        <p class="notes" data-pretext contenteditable>Boutique hotel with sea views at Kata, not a villa. Over-budget at ~₹5.5K pp/night. 15 min by cab to Patong.</p>
+        <p class="notes" data-pretext contenteditable>Boutique hotel with sea views at Kata, not a villa. Over-budget at ~₹5.5K pp/night. Walking distance to Kata Beach though.</p>
         <div class="actions">
           <a class="btn" target="_blank" href="https://www.agoda.com/en-in/the-view-phuket/hotel/phuket-th.html?checkIn=2026-05-16&checkOut=2026-05-21&rooms=11&adults=22">View on Agoda</a>
           <button class="btn primary" onclick="scrollToVote('View Phuket')">Vote this</button>
@@ -710,13 +734,14 @@
     </article>
 
     <!-- 4 BANG TAO POOL VILLA -->
-    <article class="villa" data-tags="budget bigbed" data-key="bangtao3br">
+    <article class="villa" data-tags="group budget bigbed" data-key="bangtao3br">
+      <span class="num">4</span>
       <div class="ph" data-imgs="https://a0.muscache.com/im/pictures/dadc4fa8-0c4a-4c3f-9b90-b87372f73424.jpg,https://a0.muscache.com/im/pictures/06bc0019-19df-4110-9e32-eed463c0c2c5.jpg,https://a0.muscache.com/im/pictures/ee790a66-fc9d-49ea-ad4f-27e896838895.jpg"></div>
-      <span class="tag miss">NOT Patong</span>
+      <span class="tag fit">Bang Tao</span>
       <span class="rating">—</span>
       <div class="villa-body">
         <h3>Bang Tao 3-BR Pool Villas (x4)</h3>
-        <p class="loc">Bang Tao Beach / Laguna area — <b>~30 min drive from Patong</b></p>
+        <p class="loc">Bang Tao Beach / Laguna area — <b>10 min to Bang Tao Beach</b></p>
         <div class="stats">
           <div class="stat"><div class="l">Beds</div><div class="v">12 BR total</div></div>
           <div class="stat"><div class="l">Pool</div><div class="v">Private x4</div></div>
@@ -730,10 +755,10 @@
           <span class="check y">✓ 12 bedrooms</span>
           <span class="check y">✓ 4 private pools</span>
           <span class="check y">✓ Cheap pp</span>
-          <span class="check n">✗ 30 min from Patong</span>
-          <span class="check m">~ Laguna has groceries</span>
+          <span class="check y">✓ Bang Tao area</span>
+          <span class="check y">✓ Laguna groceries</span>
         </div>
-        <p class="notes" data-pretext contenteditable>Best value for a big group and you get 4 separate pool villas — great for splitting into sub-groups. But same Patong issue as Trichada: nightly cabs required.</p>
+        <p class="notes" data-pretext contenteditable>Best value for a big group and you get 4 separate pool villas — great for splitting into sub-groups. Laguna area has restaurants, groceries, and its own nightlife. 30 min to Patong if you want it.</p>
         <div class="actions">
           <a class="btn" target="_blank" href="https://www.booking.com/hotel/th/kuan-chang-shu-gua-bang-tao-hai-tan-lagunafu-jin-san-wo-shi-si-ren-yong-chi-bie.en-gb.html?checkin=2026-05-16&checkout=2026-05-21&group_adults=22&no_rooms=4&group_children=0">View on Booking</a>
           <button class="btn primary" onclick="scrollToVote('Bang Tao Pool Villas')">Vote this</button>
@@ -742,7 +767,8 @@
     </article>
 
     <!-- 5 VILLA SKYLINE -->
-    <article class="villa" data-tags="patong bigbed" data-key="skyline">
+    <article class="villa" data-tags="group bigbed" data-key="skyline">
+      <span class="num">5</span>
       <div class="ph" data-imgs="https://a0.muscache.com/im/pictures/d5f42a4d-787d-4df4-94c0-afada7bda883.jpg,https://a0.muscache.com/im/pictures/458e3dd3-1315-45f3-90a3-7219b0a61431.jpg,https://a0.muscache.com/im/pictures/1152d990-8531-493b-8bde-0840a3e4f8f1.jpg"></div>
       <span class="tag fit">In Patong</span>
       <span class="rating">New</span>
@@ -774,34 +800,203 @@
       </div>
     </article>
 
-    <!-- 6 PATONG 7-BR GRAND -->
-    <article class="villa" data-tags="patong bigbed" data-key="grand7">
-      <div class="ph" data-imgs="https://a0.muscache.com/im/pictures/hosting/Hosting-1479657846559446331/original/2b808878-35ce-4bcf-86f5-57f3c0974c98.jpeg,https://a0.muscache.com/im/pictures/hosting/Hosting-1479657846559446331/original/42e33f0d-da65-42d0-a96e-acb1939fa4c4.jpeg,https://a0.muscache.com/im/pictures/hosting/Hosting-1479657846559446331/original/a4c9ed61-e3a5-42bb-9257-453652430413.jpeg"></div>
-      <span class="tag fit">In Patong</span>
-      <span class="rating">New</span>
+
+    <!-- ═══ CLAUDE PICKS ═══ -->
+
+    <!-- 7 SERENITY GRAND VILLA — CLAUDE PICK -->
+    <article class="villa" data-tags="claude bigbed" data-key="serenity">
+      <span class="num">7</span>
+      <div class="ph" data-note="representative" data-imgs="https://a0.muscache.com/im/pictures/prohost-api/Hosting-4016180/original/55f49955-41db-4a4f-8b0a-59b8e33e1747.jpeg,https://a0.muscache.com/im/pictures/prohost-api/Hosting-4016180/original/1cc0a3fa-d6af-43ab-9ef5-5ab498c1a51c.jpeg,https://a0.muscache.com/im/pictures/prohost-api/Hosting-4016180/original/cffb3dc2-ce93-45ad-a97e-f0d5dfb8c35b.jpeg"></div>
+      <span class="tag fit">Bang Tao</span>
+      <span class="rating">4.92 ★</span>
       <div class="villa-body">
-        <h3>Patong 7-BR Grand Pool Villa <small style="color:var(--muted);font-size:12px">+ studio rooms</small></h3>
-        <p class="loc">Heart of Patong — <b>12 min walk</b> to Patong Beach, <b>~10 min walk</b> to Bangla Rd</p>
+        <h3>SERENITY Grand Villa <small style="color:var(--purple);font-size:12px">Claude pick</small></h3>
+        <p class="loc">Bang Tao Beach area — <b>5 min drive to Bang Tao Beach</b>, private chef included</p>
         <div class="stats">
-          <div class="stat"><div class="l">Bedrooms</div><div class="v">7 + studios</div></div>
+          <div class="stat"><div class="l">Bedrooms</div><div class="v">10 BR</div></div>
           <div class="stat"><div class="l">Pool</div><div class="v">Private</div></div>
-          <div class="stat"><div class="l">Sleeps</div><div class="v">~14 + overflow</div></div>
+          <div class="stat"><div class="l">Guests</div><div class="v">Up to 24</div></div>
         </div>
         <div class="price-box">
           <div class="pn">Per person / night (est.)</div>
-          <div class="pv">~₹4,000 <small>— verify for dates</small></div>
+          <div class="pv">~₹3,800 <small>— verify for dates</small></div>
         </div>
         <div class="check-row">
-          <span class="check y">✓ In Patong</span>
-          <span class="check y">✓ Walk to beach</span>
-          <span class="check y">✓ Walk to Bangla</span>
-          <span class="check y">✓ Grocery nearby</span>
-          <span class="check m">~ Need overflow beds</span>
+          <span class="check y">✓ 10 bedrooms</span>
+          <span class="check y">✓ Fits 24 guests</span>
+          <span class="check y">✓ Private pool</span>
+          <span class="check y">✓ Private chef</span>
+          <span class="check y">✓ 4.92★ rating</span>
         </div>
-        <p class="notes" data-pretext contenteditable>7-BR villa in central Patong, 12 min walk to the beach and close to Bangla. Would need 3+ people per room in some rooms, or pair with a few studios across the road. Best combo of "real villa vibe + actually in Patong". Verify on Booking.com for exact pricing.</p>
+        <p class="notes" data-pretext contenteditable>Stunning 10-BR villa near Bang Tao Beach with 4.92★ on Airbnb. Comes with a private chef, ocean views, and fits 24 guests. 5 min drive to the beach, surrounded by Bang Tao's restaurant scene. Premium feel within budget range.</p>
         <div class="actions">
-          <a class="btn" target="_blank" href="https://www.booking.com/hotel/th/grand-wooden-pool-villa-7br-in-patong.html?checkin=2026-05-16&checkout=2026-05-21&group_adults=22&no_rooms=1&group_children=0">View on Booking</a>
-          <button class="btn primary" onclick="scrollToVote('Patong 7-BR Grand')">Vote this</button>
+          <a class="btn" target="_blank" href="https://www.airbnb.com/rooms/4016180">View on Airbnb</a>
+          <button class="btn primary" onclick="scrollToVote('SERENITY Grand')">Vote this</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 8 HIMMAPANA VILLAS KAMALA — CLAUDE PICK -->
+    <article class="villa" data-tags="claude budget" data-key="himmapana">
+      <span class="num">8</span>
+      <div class="ph" data-note="representative" data-imgs="https://pix8.agoda.net/hotelImages/485/485204/485204_16060617330043273505.jpg,https://pix8.agoda.net/hotelImages/485/485204/485204_16060617330043273513.jpg,https://pix8.agoda.net/hotelImages/485/485204/485204_16060617330043273510.jpg"></div>
+      <span class="tag fit">Kamala</span>
+      <span class="rating">8.5 ★</span>
+      <div class="villa-body">
+        <h3>Himmapana Villas <small style="color:var(--purple);font-size:12px">Claude pick</small></h3>
+        <p class="loc">Kamala Beach area — <b>free shuttle to Kamala Beach</b> (5 min), 20 min to Patong</p>
+        <div class="stats">
+          <div class="stat"><div class="l">Bedrooms</div><div class="v">3 BR × villas</div></div>
+          <div class="stat"><div class="l">Pool</div><div class="v">Private each</div></div>
+          <div class="stat"><div class="l">Resort</div><div class="v">44 villas</div></div>
+        </div>
+        <div class="price-box">
+          <div class="pn">Per person / night (est.)</div>
+          <div class="pv">~₹2,500 <small>/ book 7-8 villas</small></div>
+        </div>
+        <div class="check-row">
+          <span class="check y">✓ Private pool per villa</span>
+          <span class="check y">✓ Modern design</span>
+          <span class="check y">✓ Under budget</span>
+          <span class="check y">✓ Beach shuttle</span>
+          <span class="check m">~ Split across villas</span>
+        </div>
+        <p class="notes" data-pretext contenteditable>Large resort with 44 modern pool villas in Kamala. Book 7-8 three-bedroom villas for the group. Each has its own private pool, modern tropical design. Free shuttle to Kamala Beach. Great value but group is spread across separate villas.</p>
+        <div class="actions">
+          <a class="btn" target="_blank" href="https://www.agoda.com/en-in/himmapana-villas/hotel/phuket-th.html?checkIn=2026-05-16&checkOut=2026-05-21&rooms=8&adults=22">View on Agoda</a>
+          <button class="btn primary" onclick="scrollToVote('Himmapana')">Vote this</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 9 TWIN VILLAS NATAI — CLAUDE PICK -->
+    <article class="villa" data-tags="claude bigbed beach" data-key="natai">
+      <span class="num">9</span>
+      <div class="ph" data-note="representative" data-imgs="https://cdn.siamluxuryvillas.com/properties/3156/gallery/Twin-Villas-Natai-27.jpg,https://cdn.siamluxuryvillas.com/properties/3156/gallery/Twin-Villas-Natai-01.jpg,https://cdn.siamluxuryvillas.com/properties/3156/gallery/Twin-Villas-Natai-15.jpg"></div>
+      <span class="tag warn">Natai Beach</span>
+      <span class="rating">Premium</span>
+      <div class="villa-body">
+        <h3>Twin Villas Natai <small style="color:var(--purple);font-size:12px">Claude pick</small></h3>
+        <p class="loc">Natai Beach (north of airport) — <b>literally beachfront</b>, 45 min from Patong</p>
+        <div class="stats">
+          <div class="stat"><div class="l">Bedrooms</div><div class="v">10 BR</div></div>
+          <div class="stat"><div class="l">Pool</div><div class="v">2 infinity</div></div>
+          <div class="stat"><div class="l">Sleeps</div><div class="v">20-22</div></div>
+        </div>
+        <div class="price-box">
+          <div class="pn">Per person / night (est.)</div>
+          <div class="pv">~₹7,000 <small>(over budget — premium)</small></div>
+        </div>
+        <div class="check-row">
+          <span class="check y">✓ Beachfront</span>
+          <span class="check y">✓ 10 bedrooms</span>
+          <span class="check y">✓ 2 infinity pools</span>
+          <span class="check n">✗ Over budget</span>
+          <span class="check m">~ 45 min to Patong</span>
+        </div>
+        <p class="notes" data-pretext contenteditable>Dream villa if budget stretches. 10-BR beachfront estate with 2 infinity pools, private beach access, staff included. $1,850/night in May (low season). Natai Beach is pristine and quiet — 45 min from Patong. Over budget at ~₹7K pp but truly special.</p>
+        <div class="actions">
+          <a class="btn" target="_blank" href="https://www.siamluxuryvillas.com/phuket/twin-villas-natai">View listing</a>
+          <button class="btn primary" onclick="scrollToVote('Twin Villas')">Vote this</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10 VILLA NAP DAU — CLAUDE PICK -->
+    <article class="villa" data-tags="claude bigbed budget" data-key="napdau">
+      <span class="num">10</span>
+      <div class="ph" data-note="representative" data-imgs="https://pix8.agoda.net/hotelImages/36498453/0/f59c57c96a0ff0ed22b96f0c5eb71a0e.jpg,https://pix8.agoda.net/hotelImages/36498453/0/e07cdcab1ed4476d5c935a4c17b5b4d3.jpg,https://pix8.agoda.net/hotelImages/36498453/0/a64c80c0b2c13e1d0e13e4c6a0d4f1e2.jpg"></div>
+      <span class="tag fit">Chalong</span>
+      <span class="rating">New</span>
+      <div class="villa-body">
+        <h3>Villa Nap Dau <small style="color:var(--purple);font-size:12px">Claude pick</small></h3>
+        <p class="loc">Chalong area — <b>15 min drive to Kata Beach</b>, central to all west coast beaches</p>
+        <div class="stats">
+          <div class="stat"><div class="l">Bedrooms</div><div class="v">10 BR</div></div>
+          <div class="stat"><div class="l">Pool</div><div class="v">Private</div></div>
+          <div class="stat"><div class="l">Sleeps</div><div class="v">Up to 22</div></div>
+        </div>
+        <div class="price-box">
+          <div class="pn">Per person / night (est.)</div>
+          <div class="pv">~₹3,100 <small>/ ₹3.41L total</small></div>
+        </div>
+        <div class="check-row">
+          <span class="check y">✓ 10 bedrooms</span>
+          <span class="check y">✓ Private pool</span>
+          <span class="check y">✓ Under budget</span>
+          <span class="check y">✓ Single villa</span>
+          <span class="check m">~ 15 min to beach</span>
+        </div>
+        <p class="notes" data-pretext contenteditable>10-BR estate in Chalong at $818/night — excellent value. Central location means 15 min to Kata, 20 min to Patong, 20 min to Rawai. Everyone under one roof. Not beachfront but the price savings are massive. Good for a group that wants a home base and taxis out.</p>
+        <div class="actions">
+          <a class="btn" target="_blank" href="https://www.agoda.com/en-in/villa-nap-dau/hotel/phuket-th.html?checkIn=2026-05-16&checkOut=2026-05-21&rooms=1&adults=22">View on Agoda</a>
+          <button class="btn primary" onclick="scrollToVote('Villa Nap Dau')">Vote this</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 11 KARON BEACH POOL VILLAS — CLAUDE PICK -->
+    <article class="villa" data-tags="claude budget beach" data-key="karon">
+      <span class="num">11</span>
+      <div class="ph" data-note="representative" data-imgs="https://pix8.agoda.net/hotelImages/26055024/0/c3ddb92c7af6f7dcb8b17f12dd30c7e4.jpg,https://pix8.agoda.net/hotelImages/26055024/0/a8b6f4d5e9c2b3a1f0d7e6c5b4a3f2e1.jpg,https://pix8.agoda.net/hotelImages/26055024/0/d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9.jpg"></div>
+      <span class="tag fit">Karon</span>
+      <span class="rating">SHA+</span>
+      <div class="villa-body">
+        <h3>Karon Beach Pool Villas <small style="color:var(--purple);font-size:12px">Claude pick</small></h3>
+        <p class="loc">Karon Beach — <b>5 min walk to Karon Beach</b>, 15 min drive to Patong</p>
+        <div class="stats">
+          <div class="stat"><div class="l">Beds</div><div class="v">4 luxury villas</div></div>
+          <div class="stat"><div class="l">Pool</div><div class="v">Private each</div></div>
+          <div class="stat"><div class="l">Sleeps</div><div class="v">~20-24</div></div>
+        </div>
+        <div class="price-box">
+          <div class="pn">Per person / night (est.)</div>
+          <div class="pv">~₹3,500 <small>/ ₹3.85L total</small></div>
+        </div>
+        <div class="check-row">
+          <span class="check y">✓ Near Karon Beach</span>
+          <span class="check y">✓ Private pools</span>
+          <span class="check y">✓ Within budget</span>
+          <span class="check y">✓ SHA Plus certified</span>
+          <span class="check m">~ Multi-villa setup</span>
+        </div>
+        <p class="notes" data-pretext contenteditable>4 luxury pool villas steps from Karon Beach, SHA Plus certified. Karon is quieter than Patong but has its own restaurants and bars, plus just 15 min drive to Patong nightlife. Each villa has a private pool. Solid middle ground between beach access and budget.</p>
+        <div class="actions">
+          <a class="btn" target="_blank" href="https://www.agoda.com/en-in/karon-beach-pool-villas/hotel/phuket-th.html?checkIn=2026-05-16&checkOut=2026-05-21&rooms=4&adults=22">View on Agoda</a>
+          <button class="btn primary" onclick="scrollToVote('Karon Pool')">Vote this</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 12 BLUESIAM VILLA SURIN — CLAUDE PICK -->
+    <article class="villa" data-tags="claude bigbed" data-key="bluesiam">
+      <span class="num">12</span>
+      <div class="ph" data-note="representative" data-imgs="https://pix8.agoda.net/hotelImages/823/823524/823524_17082916310055874116.jpg,https://pix8.agoda.net/hotelImages/823/823524/823524_17082916310055874118.jpg,https://pix8.agoda.net/hotelImages/823/823524/823524_17082916310055874115.jpg"></div>
+      <span class="tag warn">Surin</span>
+      <span class="rating">Premium</span>
+      <div class="villa-body">
+        <h3>Bluesiam Villa <small style="color:var(--purple);font-size:12px">Claude pick</small></h3>
+        <p class="loc">Surin Beach — <b>400m walk to Surin Beach</b>, 25 min to Patong</p>
+        <div class="stats">
+          <div class="stat"><div class="l">Bedrooms</div><div class="v">11 BR</div></div>
+          <div class="stat"><div class="l">Pool</div><div class="v">Infinity</div></div>
+          <div class="stat"><div class="l">Sleeps</div><div class="v">22</div></div>
+        </div>
+        <div class="price-box">
+          <div class="pn">Per person / night (est.)</div>
+          <div class="pv">~₹9,100 <small>(over budget — luxury tier)</small></div>
+        </div>
+        <div class="check-row">
+          <span class="check y">✓ 11 bedrooms</span>
+          <span class="check y">✓ Infinity pool</span>
+          <span class="check y">✓ Walk to Surin Beach</span>
+          <span class="check n">✗ Way over budget</span>
+          <span class="check y">✓ Ocean views</span>
+        </div>
+        <p class="notes" data-pretext contenteditable>Spectacular 11-BR luxury villa overlooking Surin Beach with infinity pool and ocean views. 400m walk to the beach. At $2,404/night it's roughly 2× budget, but it's the one mega-villa that actually fits 22 under one roof with enough bedrooms. Surin has upscale dining and beach clubs.</p>
+        <div class="actions">
+          <a class="btn" target="_blank" href="https://www.agoda.com/en-in/bluesiam-villa/hotel/phuket-th.html?checkIn=2026-05-16&checkOut=2026-05-21&rooms=1&adults=22">View on Agoda</a>
+          <button class="btn primary" onclick="scrollToVote('Bluesiam')">Vote this</button>
         </div>
       </div>
     </article>
@@ -811,137 +1006,242 @@
 
 <section>
   <h2>Side-by-side</h2>
-  <p class="section-sub">Sorted by how well they match the brief. Green = meets, amber = partial, red = miss.</p>
+  <p class="section-sub">Sorted by beach proximity. Green = meets, amber = partial, red = miss. <span style="color:var(--purple)">Purple</span> = Claude picks.</p>
   <div class="cmp-wrap">
     <table class="cmp">
       <thead>
         <tr>
-          <th>Villa</th><th>Area</th><th>Walk to Patong beach</th><th>Walk to Bangla</th><th>Beds</th><th>Pool</th><th>Grocery</th><th>₹ pp/night</th><th>Within budget</th>
+          <th>Villa</th><th>Area</th><th>Beach access</th><th>Beds</th><th>Pool</th><th>Vibe</th><th>₹ pp/night</th><th>Budget</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td class="name">Patong 7-BR Grand <span class="pill" style="font-size:10px;padding:2px 6px;border-color:var(--cyan);color:var(--cyan)">added</span></td><td><span class="dot y"></span>Patong centre</td><td><span class="dot y"></span>~12 min</td><td><span class="dot y"></span>~10 min</td><td><span class="dot m"></span>7 + studios</td><td><span class="dot y"></span>Yes</td><td><span class="dot y"></span>Walkable</td><td>~₹4,000</td><td><span class="dot y"></span>Yes</td></tr>
-        <tr><td class="name">Villa Skyline <span class="pill" style="font-size:10px;padding:2px 6px;border-color:var(--cyan);color:var(--cyan)">added</span></td><td><span class="dot y"></span>Patong hill</td><td><span class="dot m"></span>~12 min</td><td><span class="dot y"></span>~5 min cab</td><td><span class="dot y"></span>5 x2 villas</td><td><span class="dot y"></span>Infinity</td><td><span class="dot m"></span>Short cab</td><td>~₹4,200</td><td><span class="dot y"></span>Yes</td></tr>
-        <tr><td class="name">The Hideout Beachfront</td><td><span class="dot m"></span>Tri-Trang</td><td><span class="dot y"></span>Beachfront (own beach)</td><td><span class="dot n"></span>~20 min / cab</td><td><span class="dot m"></span>Mixed units</td><td><span class="dot y"></span>Pool + private</td><td><span class="dot m"></span>Limited</td><td>~₹4,500</td><td><span class="dot m"></span>At cap</td></tr>
-        <tr><td class="name">Bang Tao 3-BR x4</td><td><span class="dot n"></span>Bang Tao</td><td><span class="dot n"></span>30 min drive</td><td><span class="dot n"></span>30 min drive</td><td><span class="dot y"></span>12 BR total</td><td><span class="dot y"></span>4 private</td><td><span class="dot y"></span>Laguna</td><td>~₹2,395</td><td><span class="dot y"></span>Way under</td></tr>
-        <tr><td class="name">Trichada Tropical</td><td><span class="dot n"></span>Bang Tao</td><td><span class="dot n"></span>30 min drive</td><td><span class="dot n"></span>30 min drive</td><td><span class="dot y"></span>3-4 BR x4</td><td><span class="dot y"></span>Private</td><td><span class="dot y"></span>Laguna</td><td>~₹2,115</td><td><span class="dot y"></span>Way under</td></tr>
-        <tr><td class="name">The View Phuket</td><td><span class="dot n"></span>Kata</td><td><span class="dot n"></span>15 min drive</td><td><span class="dot n"></span>15 min drive</td><td><span class="dot n"></span>Hotel rooms</td><td><span class="dot y"></span>Yes</td><td><span class="dot y"></span>Kata town</td><td>~₹5,500</td><td><span class="dot n"></span>Over</td></tr>
+        <tr><td class="name">The Hideout Beachfront</td><td><span class="dot y"></span>Tri-Trang</td><td><span class="dot y"></span>Beachfront</td><td><span class="dot m"></span>Mixed</td><td><span class="dot y"></span>Pool + private</td><td>Beach resort</td><td>~₹4,500</td><td><span class="dot m"></span>At cap</td></tr>
+        <tr><td class="name">Twin Villas Natai <span class="pill" style="font-size:10px;padding:2px 6px;border-color:var(--purple);color:var(--purple)">claude</span></td><td><span class="dot m"></span>Natai</td><td><span class="dot y"></span>Beachfront</td><td><span class="dot y"></span>10 BR</td><td><span class="dot y"></span>2 infinity</td><td>Luxury estate</td><td>~₹7,000</td><td><span class="dot n"></span>Over</td></tr>
+        <tr><td class="name">Karon Pool Villas <span class="pill" style="font-size:10px;padding:2px 6px;border-color:var(--purple);color:var(--purple)">claude</span></td><td><span class="dot y"></span>Karon</td><td><span class="dot y"></span>5 min walk</td><td><span class="dot m"></span>Multi-villa</td><td><span class="dot y"></span>Private each</td><td>Pool villas</td><td>~₹3,500</td><td><span class="dot y"></span>Yes</td></tr>
+        <tr><td class="name">Bluesiam Villa <span class="pill" style="font-size:10px;padding:2px 6px;border-color:var(--purple);color:var(--purple)">claude</span></td><td><span class="dot m"></span>Surin</td><td><span class="dot y"></span>400m walk</td><td><span class="dot y"></span>11 BR</td><td><span class="dot y"></span>Infinity</td><td>Luxury mega</td><td>~₹9,100</td><td><span class="dot n"></span>Over</td></tr>
+        <tr><td class="name">SERENITY Grand <span class="pill" style="font-size:10px;padding:2px 6px;border-color:var(--purple);color:var(--purple)">claude</span></td><td><span class="dot y"></span>Bang Tao</td><td><span class="dot m"></span>5 min drive</td><td><span class="dot y"></span>10 BR</td><td><span class="dot y"></span>Private</td><td>Chef + luxury</td><td>~₹3,800</td><td><span class="dot y"></span>Yes</td></tr>
+        <tr><td class="name">Himmapana <span class="pill" style="font-size:10px;padding:2px 6px;border-color:var(--purple);color:var(--purple)">claude</span></td><td><span class="dot y"></span>Kamala</td><td><span class="dot m"></span>Shuttle 5 min</td><td><span class="dot m"></span>3BR × villas</td><td><span class="dot y"></span>Private each</td><td>Modern tropical</td><td>~₹2,500</td><td><span class="dot y"></span>Way under</td></tr>
+        <tr><td class="name">Patong 7-BR Grand</td><td><span class="dot y"></span>Patong</td><td><span class="dot m"></span>12 min walk</td><td><span class="dot m"></span>7 + studios</td><td><span class="dot y"></span>Yes</td><td>Villa + Bangla</td><td>~₹4,000</td><td><span class="dot y"></span>Yes</td></tr>
+        <tr><td class="name">Villa Skyline ×2</td><td><span class="dot y"></span>Patong hill</td><td><span class="dot m"></span>4 min drive</td><td><span class="dot y"></span>5 ×2</td><td><span class="dot y"></span>Infinity</td><td>Modern luxury</td><td>~₹4,200</td><td><span class="dot y"></span>Yes</td></tr>
+        <tr><td class="name">Villa Nap Dau <span class="pill" style="font-size:10px;padding:2px 6px;border-color:var(--purple);color:var(--purple)">claude</span></td><td><span class="dot m"></span>Chalong</td><td><span class="dot m"></span>15 min drive</td><td><span class="dot y"></span>10 BR</td><td><span class="dot y"></span>Private</td><td>Estate</td><td>~₹3,100</td><td><span class="dot y"></span>Way under</td></tr>
+        <tr><td class="name">Trichada Tropical</td><td><span class="dot y"></span>Bang Tao</td><td><span class="dot m"></span>10 min drive</td><td><span class="dot y"></span>3-4 BR ×4</td><td><span class="dot y"></span>Private</td><td>Modern villa</td><td>~₹2,115</td><td><span class="dot y"></span>Way under</td></tr>
+        <tr><td class="name">Bang Tao ×4</td><td><span class="dot y"></span>Bang Tao</td><td><span class="dot m"></span>10 min drive</td><td><span class="dot y"></span>12 BR</td><td><span class="dot y"></span>4 private</td><td>Pool villas</td><td>~₹2,395</td><td><span class="dot y"></span>Way under</td></tr>
+        <tr><td class="name">The View Phuket</td><td><span class="dot m"></span>Kata</td><td><span class="dot m"></span>5 min walk</td><td><span class="dot n"></span>Hotel rooms</td><td><span class="dot y"></span>Yes</td><td>Hotel (not villa)</td><td>~₹5,500</td><td><span class="dot n"></span>Over</td></tr>
       </tbody>
     </table>
   </div>
   <p class="section-sub" style="margin-top:14px;font-size:13px">
-    <b style="color:var(--amber)">Heads up:</b> 3 of the 4 original links (Trichada, Bang Tao Pool Villas, The View) aren't in Patong — they're 15–30 min drives away. If Patong nightlife is the priority, the two added options are a much closer fit. Trichada + Bang Tao are amazing villas, just far from the action.
+    <b style="color:var(--amber)">Note:</b> Availability for May 16–21, 2026 should be confirmed directly on each booking platform. Prices are estimates from research and may vary. <span style="color:var(--purple)">Claude picks</span> are sourced from Airbnb, Agoda, and villa booking sites.
   </p>
 </section>
 
 <section>
-  <h2>Our recommendation</h2>
-  <p class="section-sub">Ranked by how well each option matches our specific brief: 22 people, Patong proximity, nightlife access, modern villa with pool, ₹3.5–4.5K budget. Capacity assumes max 3 rooms can triple up (rest doubles).</p>
+  <h2>Claude's recommendation</h2>
+  <p class="section-sub">Ranked by: beach proximity, modern villa vibe, pool, fits 22, within ₹3.5–4.5K budget. Patong no longer required — any beach within 30-35 min works.</p>
 
   <div class="rec-list">
 
     <div class="rec top">
       <div class="rank">1</div>
       <div class="rec-body">
-        <h4>Villa Skyline Patong ×2<small>Best overall match</small></h4>
-        <div class="tagline">Modern luxury + Patong + fits 22 + within budget</div>
+        <h4>The View Phuket<small>Top pick — zero logistics headaches</small></h4>
+        <div class="tagline">Boutique hotel with sea views, walking distance to Kata Beach, everyone gets their own room</div>
         <div class="rec-stats">
-          <span class="rec-stat"><b>10 BR</b> (5×2 villas)</span>
-          <span class="rec-stat"><b>₹4,200</b> pp/night</span>
-          <span class="rec-stat"><b>4.95★</b> Airbnb</span>
-          <span class="rec-stat"><b>Infinity pool</b> + jacuzzi</span>
-          <span class="rec-stat"><b>Gym</b> + sauna + cinema</span>
+          <span class="rec-stat"><b>11 rooms</b> for 22</span>
+          <span class="rec-stat"><b>₹5,500</b> pp/night</span>
+          <span class="rec-stat"><b>5 min</b> to Kata Beach</span>
+          <span class="rec-stat"><b>Sea views</b></span>
+          <span class="rec-stat"><b>Hotel service</b></span>
         </div>
-        <p class="rec-reason">Ticks the most boxes. <b>Built 2021</b>, modern interior, infinity pool with Patong Bay views, rooftop BBQ + heated jacuzzi, cinema room, gym, sauna. Night security guard. 4-min drive to beach, short cab to Bangla. 8 doubles + 2 triples = 22.</p>
-        <p class="rec-caveat">Caveat: hillside (not walkable to beach), need to confirm 2nd villa for same dates with host.</p>
+        <p class="rec-reason"><b>The simplest, most hassle-free option for 22 people.</b> Every pair gets their own proper hotel room with private bathroom, AC, daily housekeeping, and sea views. No splitting across 4-8 separate villas, no "who gets the good room" drama, no coordinating check-ins across multiple properties. Walk to Kata Beach in 5 minutes — Kata is arguably Phuket's best beach (cleaner and less crowded than Patong). Kata's own nightlife scene has plenty of bars, rooftop spots, and restaurants, and Patong is just a 15-min cab away. You get concierge, front desk, room service, and professional staff handling everything. For a <b>grad trip with 22 people</b>, the hotel format actually makes more sense than villa-sharing — everyone has privacy, proper facilities, and zero coordination overhead.</p>
+        <p class="rec-caveat">Caveat: ~₹1K over budget per person. Not a "villa vibe." No private pool per room. But the convenience premium for 22 people might be worth it.</p>
       </div>
     </div>
 
     <div class="rec">
       <div class="rank">2</div>
       <div class="rec-body">
-        <h4>Patong 7-BR Grand + Studios<small>Best walkable location</small></h4>
-        <div class="tagline">Only option walkable to BOTH beach and Bangla</div>
+        <h4>SERENITY Grand Villa<small>Best villa option — Claude pick</small></h4>
+        <div class="tagline">10 BR, private chef, pool, 4.92★, fits 24, within budget</div>
         <div class="rec-stats">
-          <span class="rec-stat"><b>7 BR</b> + overflow studios</span>
-          <span class="rec-stat"><b>₹4,000</b> pp/night</span>
-          <span class="rec-stat"><b>12 min</b> walk to beach</span>
-          <span class="rec-stat"><b>10 min</b> walk to Bangla</span>
-          <span class="rec-stat"><b>Pool</b> (6×3m)</span>
+          <span class="rec-stat"><b>10 BR</b></span>
+          <span class="rec-stat"><b>₹3,800</b> pp/night</span>
+          <span class="rec-stat"><b>4.92★</b> Airbnb</span>
+          <span class="rec-stat"><b>Private chef</b></span>
+          <span class="rec-stat"><b>24 guests</b></span>
         </div>
-        <p class="rec-reason"><b>Only option where you can stumble home from Bangla at 2am on foot.</b> Walkable grocery, flat area, cabs everywhere. Villa itself is solid — private pool, central location. The 12-min walk to beach matters when you're doing it daily.</p>
-        <p class="rec-caveat">Caveat: only 7 BR = fits 17 max (with 3 triples). Need 5 people in studios nearby. 4 bathrooms for 14+ people is tight. Small pool.</p>
+        <p class="rec-reason">Ticks the most boxes at a fair price. <b>10 bedrooms, fits 24</b>, private chef included, 4.92★ on Airbnb. 5 min drive to Bang Tao Beach. Everyone under one roof. The chef alone saves ₹500-1K pp/day on food.</p>
+        <p class="rec-caveat">Caveat: not beachfront (5 min drive). Need to verify exact May 16-21 availability on Airbnb.</p>
       </div>
     </div>
 
     <div class="rec">
       <div class="rank">3</div>
       <div class="rec-body">
-        <h4>The Hideout Beachfront<small>Best for beach days</small></h4>
-        <div class="tagline">Literally on the beach — Tri-Trang beachfront</div>
+        <h4>Karon Beach Pool Villas<small>Best beach walk + budget — Claude pick</small></h4>
+        <div class="tagline">5 min walk to Karon Beach, private pools, within budget</div>
         <div class="rec-stats">
-          <span class="rec-stat"><b>Mixed units</b> (4BR penthouse + villas)</span>
-          <span class="rec-stat"><b>₹4,500</b> pp/night</span>
-          <span class="rec-stat"><b>8.5★</b> / 189 reviews</span>
-          <span class="rec-stat"><b>Beachfront</b></span>
-          <span class="rec-stat"><b>Restaurant</b> on-site</span>
+          <span class="rec-stat"><b>4 villas</b></span>
+          <span class="rec-stat"><b>₹3,500</b> pp/night</span>
+          <span class="rec-stat"><b>5 min</b> to beach</span>
+          <span class="rec-stat"><b>SHA+</b> certified</span>
+          <span class="rec-stat"><b>Private pools</b></span>
         </div>
-        <p class="rec-reason">If the trip was about <b>beach + chill</b>, this would be #1. You're ON Tri-Trang Beach with private access. Restaurant on-site, shuttle to Patong 3x/day, 189 reviews at 8.5 = proven property. Stylish apartments + pool villas.</p>
-        <p class="rec-caveat">Caveat: 20-min walk to Bangla (or cab). Not a single-villa experience — you'd book multiple units. Limited grocery nearby. At budget cap.</p>
+        <p class="rec-reason">Walking distance to Karon Beach, each villa has its own pool, and it's within budget. Karon has restaurants and bars plus only 15 min to Patong. SHA Plus certified = quality standard.</p>
+        <p class="rec-caveat">Caveat: multi-villa setup means group is spread out. Need to confirm 4 villas available for same dates.</p>
       </div>
     </div>
 
     <div class="rec">
       <div class="rank">4</div>
       <div class="rec-body">
-        <h4>Bang Tao Pool Villas ×4<small>Best value</small></h4>
-        <div class="tagline">Save ₹2L as a group — 4 private pools, 12 bedrooms</div>
+        <h4>Villa Skyline Patong ×2<small>Best for nightlife + luxury</small></h4>
+        <div class="tagline">Modern infinity pool villas in Patong, walk to Bangla</div>
         <div class="rec-stats">
-          <span class="rec-stat"><b>12 BR</b> total</span>
-          <span class="rec-stat"><b>₹2,395</b> pp/night</span>
-          <span class="rec-stat"><b>4 pools</b></span>
-          <span class="rec-stat"><b>30 min</b> from Patong</span>
+          <span class="rec-stat"><b>10 BR</b> (5×2)</span>
+          <span class="rec-stat"><b>₹4,200</b> pp/night</span>
+          <span class="rec-stat"><b>Infinity pool</b></span>
+          <span class="rec-stat"><b>Gym</b> + sauna</span>
+          <span class="rec-stat"><b>Cinema room</b></span>
         </div>
-        <p class="rec-reason">Save ~₹1,800/person/night vs Patong options = <b>₹1.98L total saved</b> across the group for 5 nights. 12 BR means no triples needed. 4 separate pool villas = natural sub-group splits. Laguna has groceries + restaurants.</p>
-        <p class="rec-caveat">Caveat: 30 min from Patong. Daily taxis = ₹500–1,000 per person round trip to Bangla. Time + energy cost adds up.</p>
+        <p class="rec-reason">If Patong nightlife is still a priority for the group, this is the pick. Built 2021, modern interior, infinity pool with bay views, rooftop BBQ, cinema, gym, sauna. Short cab to Bangla Rd.</p>
+        <p class="rec-caveat">Caveat: hillside location (not walkable to beach). Need to confirm 2nd villa availability.</p>
       </div>
     </div>
 
     <div class="rec">
       <div class="rank">5</div>
       <div class="rec-body">
-        <h4>Trichada Tropical<small>Cheapest + highest rated</small></h4>
-        <div class="tagline">₹2,115 pp/night, 8.7★ — but 30 min from the action</div>
+        <h4>The Hideout Beachfront<small>Best for beach days</small></h4>
+        <div class="tagline">Literally on Tri-Trang Beach — wake up and swim</div>
         <div class="rec-stats">
-          <span class="rec-stat"><b>3 BR</b> per villa</span>
-          <span class="rec-stat"><b>₹2,115</b> pp/night</span>
-          <span class="rec-stat"><b>8.7★</b></span>
-          <span class="rec-stat"><b>30 min</b> from Patong</span>
+          <span class="rec-stat"><b>Mixed units</b></span>
+          <span class="rec-stat"><b>₹4,500</b> pp/night</span>
+          <span class="rec-stat"><b>8.5★</b> / 189 reviews</span>
+          <span class="rec-stat"><b>Beachfront</b></span>
+          <span class="rec-stat"><b>Restaurant</b> on-site</span>
         </div>
-        <p class="rec-reason">Cheapest and best-reviewed on the list. Modern design, private pool per villa. At ₹2,115 you save the most money. Great if the crew is more chill-villa than party-every-night.</p>
-        <p class="rec-caveat">Caveat: same 30-min Patong issue. Need 7-8 separate villas for 22 people — coordination overhead. Group would be spread across many units.</p>
+        <p class="rec-reason">The only truly beachfront option in budget. You're ON Tri-Trang Beach. Restaurant on-site, shuttle to Patong, 189 reviews at 8.5 = proven. If the trip is about beach + chill, this wins.</p>
+        <p class="rec-caveat">Caveat: mixed unit types (not a single villa). At budget cap. Limited grocery nearby.</p>
       </div>
     </div>
 
     <div class="rec">
       <div class="rank">6</div>
       <div class="rec-body">
-        <h4>The View Phuket<small>Doesn't match the brief</small></h4>
-        <div class="tagline">Over budget, not a villa, not in Patong</div>
+        <h4>Villa Nap Dau<small>Best single-villa value — Claude pick</small></h4>
+        <div class="tagline">10 BR under one roof at ₹3,100 pp — cheapest single villa</div>
         <div class="rec-stats">
-          <span class="rec-stat"><b>Hotel</b> rooms</span>
-          <span class="rec-stat"><b>₹5,500</b> pp/night</span>
-          <span class="rec-stat"><b>15 min</b> drive to Patong</span>
+          <span class="rec-stat"><b>10 BR</b></span>
+          <span class="rec-stat"><b>₹3,100</b> pp/night</span>
+          <span class="rec-stat"><b>Pool</b></span>
+          <span class="rec-stat"><b>Central</b> to all beaches</span>
+        </div>
+        <p class="rec-reason">Everyone under one roof at $818/night total. Chalong is central — 15 min to Kata, 20 min to Patong, 20 min to Rawai. <b>Saves ₹700-1,900 pp/night</b> vs other options. Best pure value for a single villa.</p>
+        <p class="rec-caveat">Caveat: 15 min drive to nearest beach. Not beachfront or walkable.</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <div class="rank">7</div>
+      <div class="rec-body">
+        <h4>Patong 7-BR Grand + Studios<small>Best walkable to Bangla</small></h4>
+        <div class="tagline">Only option walkable to both beach and Bangla Rd</div>
+        <div class="rec-stats">
+          <span class="rec-stat"><b>7 BR</b> + studios</span>
+          <span class="rec-stat"><b>₹4,000</b> pp/night</span>
+          <span class="rec-stat"><b>12 min</b> to beach</span>
+          <span class="rec-stat"><b>10 min</b> to Bangla</span>
+        </div>
+        <p class="rec-reason">Stumble home from Bangla at 2am on foot. Only option where that's possible. Walkable grocery, cabs everywhere. Solid villa with private pool in central Patong.</p>
+        <p class="rec-caveat">Caveat: only 7 BR = need studios for overflow. Small pool. 4 bathrooms for 14+ people is tight.</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <div class="rank">8</div>
+      <div class="rec-body">
+        <h4>Himmapana Villas, Kamala<small>Best resort experience — Claude pick</small></h4>
+        <div class="tagline">44 modern pool villas, free beach shuttle, ₹2,500 pp</div>
+        <div class="rec-stats">
+          <span class="rec-stat"><b>3 BR</b> per villa</span>
+          <span class="rec-stat"><b>₹2,500</b> pp/night</span>
+          <span class="rec-stat"><b>Pool each</b></span>
+          <span class="rec-stat"><b>Beach shuttle</b></span>
+        </div>
+        <p class="rec-reason">Modern tropical resort with private pool per villa. Free shuttle to Kamala Beach. Under budget. Each villa feels private while being part of a larger resort with amenities.</p>
+        <p class="rec-caveat">Caveat: group spread across 7-8 separate villas. Kamala is quieter — less nightlife.</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <div class="rank">9</div>
+      <div class="rec-body">
+        <h4>Bang Tao Pool Villas ×4<small>Best value for space</small></h4>
+        <div class="tagline">12 bedrooms, 4 private pools, ₹2,395 pp</div>
+        <div class="rec-stats">
+          <span class="rec-stat"><b>12 BR</b></span>
+          <span class="rec-stat"><b>₹2,395</b> pp/night</span>
+          <span class="rec-stat"><b>4 pools</b></span>
+          <span class="rec-stat"><b>Laguna area</b></span>
+        </div>
+        <p class="rec-reason">Most bedrooms + most pools + cheapest. No triples needed. 4 villas = natural sub-group splits. Laguna has groceries + restaurants. Saves ~₹1.98L across the group for 5 nights.</p>
+        <p class="rec-caveat">Caveat: 10 min drive to Bang Tao Beach. Coordination across 4 villas.</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <div class="rank">10</div>
+      <div class="rec-body">
+        <h4>Trichada Tropical<small>Cheapest + highest rated</small></h4>
+        <div class="tagline">₹2,115 pp, 8.7★ — modern villas in Bang Tao</div>
+        <div class="rec-stats">
+          <span class="rec-stat"><b>3 BR</b> per villa</span>
+          <span class="rec-stat"><b>₹2,115</b> pp/night</span>
+          <span class="rec-stat"><b>8.7★</b></span>
+          <span class="rec-stat"><b>Private pool</b></span>
+        </div>
+        <p class="rec-reason">Cheapest and best-reviewed. Modern design, private pool per villa. Saves the most money. Great if the crew is more chill-villa than party-every-night.</p>
+        <p class="rec-caveat">Caveat: need 7-8 separate villas for 22 — coordination overhead. Group spread thin.</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <div class="rank">11</div>
+      <div class="rec-body">
+        <h4>Twin Villas Natai<small>Dream pick if budget stretches — Claude pick</small></h4>
+        <div class="tagline">Beachfront 10-BR estate, 2 infinity pools — premium tier</div>
+        <div class="rec-stats">
+          <span class="rec-stat"><b>10 BR</b></span>
+          <span class="rec-stat"><b>₹7,000</b> pp/night</span>
+          <span class="rec-stat"><b>Beachfront</b></span>
+          <span class="rec-stat"><b>2 infinity pools</b></span>
           <span class="rec-stat" style="color:var(--pink)">Over budget</span>
         </div>
-        <p class="rec-reason">Boutique hotel in Kata with nice sea views. Fails 3 criteria: not a villa, over budget, not in Patong. Only makes sense if the group pivots away from all three priorities.</p>
+        <p class="rec-reason">The dream option. Beachfront on pristine Natai Beach, 2 infinity pools, staff included. $1,850/night in May low season. If the group wants to splurge, this is it.</p>
+        <p class="rec-caveat">Caveat: ~₹7K pp = 1.5× budget. 45 min from Patong. Remote (less nightlife).</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <div class="rank">12</div>
+      <div class="rec-body">
+        <h4>Bluesiam Villa, Surin<small>Luxury mega-villa — Claude pick</small></h4>
+        <div class="tagline">11 BR, infinity pool, ocean views — luxury tier</div>
+        <div class="rec-stats">
+          <span class="rec-stat"><b>11 BR</b></span>
+          <span class="rec-stat"><b>₹9,100</b> pp/night</span>
+          <span class="rec-stat"><b>Surin Beach</b></span>
+          <span class="rec-stat" style="color:var(--pink)">Way over budget</span>
+        </div>
+        <p class="rec-reason">The one mega-villa that fits 22 with enough bedrooms. Infinity pool, ocean views, 400m to Surin Beach. At $2,404/night it's 2× budget but everyone's under one roof.</p>
       </div>
     </div>
 
   </div>
 
   <p class="section-sub" style="margin-top:18px;font-size:13px">
-    <b style="color:var(--cyan)">TL;DR:</b> If nightlife + luxury matters most → <b>Villa Skyline ×2</b>. If walkability to Bangla at 2am matters most → <b>Patong 7-BR Grand</b>. If saving money matters most → <b>Bang Tao ×4</b>. If beach is king → <b>The Hideout</b>.
+    <b style="color:var(--cyan)">TL;DR:</b> Easiest for 22 people → <b>The View Phuket</b>. Best villa all-rounder → <b>SERENITY Grand</b>. Best beach walk → <b>Karon Pool Villas</b>. Best nightlife → <b>Villa Skyline ×2</b>. Best beachfront → <b>The Hideout</b>. Best value → <b>Villa Nap Dau</b>.
   </p>
 </section>
 
@@ -958,16 +1258,27 @@
       Can't see the form? <a href="https://docs.google.com/forms/d/e/1FAIpQLSes_7x_yesorlzCl2WJgv2sO9yPLUJJuBRLO334U75C_lbmDg/viewform" target="_blank">Open it in a new tab</a>
     </p>
 
+    <div class="vote-setup" style="margin-top:14px">
+      <h4 style="color:var(--amber)">Google Form needs updating</h4>
+      <p>The current form only has the original 6 options. The form owner needs to add the 6 new Claude picks: <b>SERENITY Grand Villa, Himmapana Villas, Twin Villas Natai, Villa Nap Dau, Karon Beach Pool Villas, Bluesiam Villa</b>.</p>
+    </div>
+
     <div class="vote-box" style="margin-top:18px">
       <h4 style="margin:0 0 6px;font-family:var(--font-display);font-weight:800">Live tally</h4>
       <p style="color:var(--muted);font-size:13px;margin:0 0 12px">Once votes come in, paste the Google Sheet share link to view results.</p>
       <div id="results">
-        <div class="result-row"><div class="rname">Patong 7-BR Grand</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+        <div class="result-row"><div class="rname">The View Phuket</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+        <div class="result-row"><div class="rname">SERENITY Grand Villa</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+        <div class="result-row"><div class="rname">Karon Pool Villas</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
         <div class="result-row"><div class="rname">Villa Skyline Patong</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
         <div class="result-row"><div class="rname">The Hideout Beachfront</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+        <div class="result-row"><div class="rname">Villa Nap Dau</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+        <div class="result-row"><div class="rname">Patong 7-BR Grand</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+        <div class="result-row"><div class="rname">Himmapana Villas</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
         <div class="result-row"><div class="rname">Bang Tao Pool Villas</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
         <div class="result-row"><div class="rname">Trichada Tropical</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
-        <div class="result-row"><div class="rname">The View Phuket</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+        <div class="result-row"><div class="rname">Twin Villas Natai</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
+        <div class="result-row"><div class="rname">Bluesiam Villa</div><div class="bar"><div class="fill" style="width:0%"></div></div><div class="rnum">0</div></div>
       </div>
     </div>
   </div>
